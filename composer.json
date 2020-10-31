@@ -1,5 +1,5 @@
 {
-	"name": "znbundle/queue",
+	"name": "znbundle/eav",
 	"type": "extension",
 	"license": "MIT",
 	"authors": [
@@ -10,12 +10,12 @@
 	],
 	"minimum-stability": "dev",
 	"require": {
-		"symfony/console": "4.*|5.*"
+		
 	},
 	"autoload": {
 		"psr-4": {
-			"ZnBundle\\Queue\\": "src",
-			"ZnBundle\\Queue\\Tests\\": "tests"
+			"ZnBundle\\Eav\\": "src",
+			"ZnBundle\\Eav\\Tests\\": "tests"
 		}
 	}
 }
