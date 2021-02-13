@@ -2,9 +2,7 @@
 
 namespace ZnBundle\Eav\Yii2\Api\controllers;
 
-use ZnBundle\Eav\Domain\Interfaces\Services\CategoryServiceInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\AttributeServiceInterface;
-use ZnBundle\Eav\Domain\Services\AttributeService;
 use yii\base\Module;
 use ZnLib\Rest\Yii2\Base\BaseCrudController;
 

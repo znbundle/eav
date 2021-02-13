@@ -4,11 +4,12 @@ namespace ZnBundle\Eav\Domain\Services;
 
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
-use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
+use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use ZnCore\Domain\Base\BaseCrudService;
+use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Domain\Helpers\ValidationHelper;
 use ZnCore\Domain\Libs\Query;
@@ -20,7 +21,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
 
     public function __construct(EntityRepositoryInterface $repository, AttributeRepositoryInterface $attributeRepository)
     {
-        $this->repository = $repository;
+        $this->setRepository($repository);
         $this->attributeRepository = $attributeRepository;
     }
 
@@ -43,6 +44,12 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         return new DynamicEntity($entityEntity);
     }
 
+    /**
+     * @param int $entityId
+     * @param array $data
+     * @return object
+     * @throws UnprocessibleEntityException
+     */
     public function validate(int $entityId, array $data): object
     {
         $entityEntity = $this->oneByIdWithRelations($entityId);
@@ -52,7 +59,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         $propertyAccessor = PropertyAccess::createPropertyAccessor();
         foreach ($entityEntity->getAttributes() as $attributeEntity) {
             $value = $propertyAccessor->getValue($dynamicEntity, $attributeEntity->getName());
-            if($attributeEntity->getDefault() !== null && $value === null) {
+            if ($attributeEntity->getDefault() !== null && $value === null) {
                 $propertyAccessor->setValue($dynamicEntity, $attributeEntity->getName(), $attributeEntity->getDefault());
             }
         }

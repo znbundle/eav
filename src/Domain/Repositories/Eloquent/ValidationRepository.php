@@ -4,18 +4,18 @@ namespace ZnBundle\Eav\Domain\Repositories\Eloquent;
 
 use ZnBundle\Eav\Domain\Entities\ValidationEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\ValidationRepositoryInterface;
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
 use ZnCore\Domain\Libs\Query;
+use ZnLib\Db\Base\BaseEloquentCrudRepository;
 
 class ValidationRepository extends BaseEloquentCrudRepository implements ValidationRepositoryInterface
 {
 
-    public function tableName() : string
+    public function tableName(): string
     {
         return 'eav_validation';
     }
 
-    public function getEntityClass() : string
+    public function getEntityClass(): string
     {
         return ValidationEntity::class;
     }

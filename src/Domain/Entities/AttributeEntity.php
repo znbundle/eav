@@ -4,10 +4,11 @@ namespace ZnBundle\Eav\Domain\Entities;
 
 use Illuminate\Support\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
+use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
 
-class AttributeEntity implements ValidateEntityInterface, EntityIdInterface
+class AttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInterface
 {
 
     private $id = null;
@@ -34,34 +35,16 @@ class AttributeEntity implements ValidateEntityInterface, EntityIdInterface
 
     private $unit;
 
-    public function validationRules()
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        return [
-            'id' => [
-                new Assert\NotBlank,
-            ],
-            'name' => [
-                new Assert\NotBlank,
-            ],
-            'type' => [
-                new Assert\NotBlank,
-            ],
-            'default' => [
-                new Assert\NotBlank,
-            ],
-            'title' => [
-                new Assert\NotBlank,
-            ],
-            'description' => [
-                new Assert\NotBlank,
-            ],
-            'unitId' => [
-                new Assert\NotBlank,
-            ],
-            'status' => [
-                new Assert\NotBlank,
-            ],
-        ];
+        $metadata->addPropertyConstraint('id', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('name', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('type', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('default', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('title', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('description', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('unitId', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('status', new Assert\NotBlank);
     }
 
     public function setId($value): void

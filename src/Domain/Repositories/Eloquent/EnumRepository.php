@@ -4,8 +4,8 @@ namespace ZnBundle\Eav\Domain\Repositories\Eloquent;
 
 use ZnBundle\Eav\Domain\Entities\EnumEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EnumRepositoryInterface;
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
 use ZnCore\Domain\Libs\Query;
+use ZnLib\Db\Base\BaseEloquentCrudRepository;
 
 class EnumRepository extends BaseEloquentCrudRepository implements EnumRepositoryInterface
 {

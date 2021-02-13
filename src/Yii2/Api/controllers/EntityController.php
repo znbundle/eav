@@ -3,8 +3,8 @@
 namespace ZnBundle\Eav\Yii2\Api\controllers;
 
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
+use Yii;
 use yii\base\Module;
-use ZnCore\Base\Enums\Http\HttpStatusCodeEnum;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnLib\Rest\Yii2\Base\BaseCrudController;
 
@@ -19,7 +19,7 @@ class EntityController extends BaseCrudController
 
     public function actionValidate(int $entityId)
     {
-        $dynamicEntity = $this->service->validate($entityId, \Yii::$app->request->post());
+        $dynamicEntity = $this->service->validate($entityId, Yii::$app->request->post());
         return EntityHelper::toArray($dynamicEntity);
         //\Yii::$app->response->setStatusCode(HttpStatusCodeEnum::NO_CONTENT);
     }

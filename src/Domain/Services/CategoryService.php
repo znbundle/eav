@@ -11,7 +11,7 @@ class CategoryService extends BaseCrudService implements CategoryServiceInterfac
 
     public function __construct(CategoryRepositoryInterface $repository)
     {
-        $this->repository = $repository;
+        $this->setRepository($repository);
     }
 
 }

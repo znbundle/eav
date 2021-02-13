@@ -3,10 +3,11 @@
 namespace ZnBundle\Eav\Domain\Entities;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
 
-class MeasureEntity implements ValidateEntityInterface, EntityIdInterface
+class MeasureEntity implements ValidateEntityByMetadataInterface, EntityIdInterface
 {
 
     private $id = null;
@@ -21,31 +22,17 @@ class MeasureEntity implements ValidateEntityInterface, EntityIdInterface
 
     private $rate = null;
 
-    public function validationRules()
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        return [
-            'id' => [
-                new Assert\NotBlank,
-            ],
-            'parentId' => [
-                new Assert\NotBlank,
-            ],
-            'name' => [
-                new Assert\NotBlank,
-            ],
-            'title' => [
-                new Assert\NotBlank,
-            ],
-            'shortTitle' => [
-                new Assert\NotBlank,
-            ],
-            'rate' => [
-                new Assert\NotBlank,
-            ],
-        ];
+        $metadata->addPropertyConstraint('id', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('parentId', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('name', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('title', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('shortTitle', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('rate', new Assert\NotBlank);
     }
 
-    public function setId($value) : void
+    public function setId($value): void
     {
         $this->id = $value;
     }
@@ -55,7 +42,7 @@ class MeasureEntity implements ValidateEntityInterface, EntityIdInterface
         return $this->id;
     }
 
-    public function setParentId($value) : void
+    public function setParentId($value): void
     {
         $this->parentId = $value;
     }
@@ -65,7 +52,7 @@ class MeasureEntity implements ValidateEntityInterface, EntityIdInterface
         return $this->parentId;
     }
 
-    public function setName($value) : void
+    public function setName($value): void
     {
         $this->name = $value;
     }
@@ -75,7 +62,7 @@ class MeasureEntity implements ValidateEntityInterface, EntityIdInterface
         return $this->name;
     }
 
-    public function setTitle($value) : void
+    public function setTitle($value): void
     {
         $this->title = $value;
     }
@@ -85,7 +72,7 @@ class MeasureEntity implements ValidateEntityInterface, EntityIdInterface
         return $this->title;
     }
 
-    public function setShortTitle($value) : void
+    public function setShortTitle($value): void
     {
         $this->shortTitle = $value;
     }
@@ -95,7 +82,7 @@ class MeasureEntity implements ValidateEntityInterface, EntityIdInterface
         return $this->shortTitle;
     }
 
-    public function setRate($value) : void
+    public function setRate($value): void
     {
         $this->rate = $value;
     }

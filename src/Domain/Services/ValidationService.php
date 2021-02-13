@@ -2,8 +2,8 @@
 
 namespace ZnBundle\Eav\Domain\Services;
 
-use ZnBundle\Eav\Domain\Interfaces\Services\ValidationServiceInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\ValidationRepositoryInterface;
+use ZnBundle\Eav\Domain\Interfaces\Services\ValidationServiceInterface;
 use ZnCore\Domain\Base\BaseCrudService;
 
 class ValidationService extends BaseCrudService implements ValidationServiceInterface
@@ -11,7 +11,7 @@ class ValidationService extends BaseCrudService implements ValidationServiceInte
 
     public function __construct(ValidationRepositoryInterface $repository)
     {
-        $this->repository = $repository;
+        $this->setRepository($repository);
     }
 
 

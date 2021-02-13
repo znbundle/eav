@@ -3,10 +3,11 @@
 namespace ZnBundle\Eav\Domain\Entities;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
 
-class EnumEntity implements ValidateEntityInterface, EntityIdInterface
+class EnumEntity implements ValidateEntityByMetadataInterface, EntityIdInterface
 {
 
     private $id = null;
@@ -21,31 +22,17 @@ class EnumEntity implements ValidateEntityInterface, EntityIdInterface
 
     private $status = null;
 
-    public function validationRules()
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        return [
-            'id' => [
-                new Assert\NotBlank,
-            ],
-            'attributeId' => [
-                new Assert\NotBlank,
-            ],
-            'name' => [
-                new Assert\NotBlank,
-            ],
-            'title' => [
-                new Assert\NotBlank,
-            ],
-            'sort' => [
-                new Assert\NotBlank,
-            ],
-            'status' => [
-                new Assert\NotBlank,
-            ],
-        ];
+        $metadata->addPropertyConstraint('id', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('attributeId', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('name', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('title', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('sort', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('status', new Assert\NotBlank);
     }
 
-    public function setId($value) : void
+    public function setId($value): void
     {
         $this->id = $value;
     }
@@ -55,7 +42,7 @@ class EnumEntity implements ValidateEntityInterface, EntityIdInterface
         return $this->id;
     }
 
-    public function setattributeId($value) : void
+    public function setattributeId($value): void
     {
         $this->attributeId = $value;
     }
@@ -65,7 +52,7 @@ class EnumEntity implements ValidateEntityInterface, EntityIdInterface
         return $this->attributeId;
     }
 
-    public function setName($value) : void
+    public function setName($value): void
     {
         $this->name = $value;
     }
@@ -75,7 +62,7 @@ class EnumEntity implements ValidateEntityInterface, EntityIdInterface
         return $this->name;
     }
 
-    public function setTitle($value) : void
+    public function setTitle($value): void
     {
         $this->title = $value;
     }
@@ -85,7 +72,7 @@ class EnumEntity implements ValidateEntityInterface, EntityIdInterface
         return $this->title;
     }
 
-    public function setSort($value) : void
+    public function setSort($value): void
     {
         $this->sort = $value;
     }
@@ -95,7 +82,7 @@ class EnumEntity implements ValidateEntityInterface, EntityIdInterface
         return $this->sort;
     }
 
-    public function setStatus($value) : void
+    public function setStatus($value): void
     {
         $this->status = $value;
     }

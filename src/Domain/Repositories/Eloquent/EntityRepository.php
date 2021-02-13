@@ -7,8 +7,8 @@ use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityAttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
+use ZnLib\Db\Base\BaseEloquentCrudRepository;
 
 class EntityRepository extends BaseEloquentCrudRepository implements EntityRepositoryInterface
 {
@@ -41,10 +41,10 @@ class EntityRepository extends BaseEloquentCrudRepository implements EntityRepos
                         /** @var EntityAttributeEntity $entityAttributeEntity */
                         foreach ($entityAttributeCollection as $entityAttributeEntity) {
                             $attributeEntity = $entityAttributeEntity->getAttribute();
-                            if($entityAttributeEntity->getDefault() !== null) {
+                            if ($entityAttributeEntity->getDefault() !== null) {
                                 $attributeEntity->setDefault($entityAttributeEntity->getDefault());
                             }
-                            if($entityAttributeEntity->getIsRequired() !== null) {
+                            if ($entityAttributeEntity->getIsRequired() !== null) {
                                 $attributeEntity->setIsRequired($entityAttributeEntity->getIsRequired());
                             }
                             $filedCollection->add($attributeEntity);

@@ -3,10 +3,11 @@
 namespace ZnBundle\Eav\Domain\Entities;
 
 use Symfony\Component\Validator\Constraints as Assert;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
+use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
 
-class EntityAttributeEntity implements ValidateEntityInterface, EntityIdInterface
+class EntityAttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInterface
 {
 
     private $id = null;
@@ -31,37 +32,19 @@ class EntityAttributeEntity implements ValidateEntityInterface, EntityIdInterfac
 
     private $attribute;
 
-    public function validationRules()
+    public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        return [
-            'id' => [
-                new Assert\NotBlank,
-            ],
-            'entityId' => [
-                new Assert\NotBlank,
-            ],
-            'attributeId' => [
-                new Assert\NotBlank,
-            ],
-            'name' => [
-                new Assert\NotBlank,
-            ],
-            'title' => [
-                new Assert\NotBlank,
-            ],
-            'description' => [
-                new Assert\NotBlank,
-            ],
-            'sort' => [
-                new Assert\NotBlank,
-            ],
-            'status' => [
-                new Assert\NotBlank,
-            ],
-        ];
+        $metadata->addPropertyConstraint('id', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('entityId', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('attributeId', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('name', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('title', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('description', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('sort', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('status', new Assert\NotBlank);
     }
 
-    public function setId($value) : void
+    public function setId($value): void
     {
         $this->id = $value;
     }
@@ -71,7 +54,7 @@ class EntityAttributeEntity implements ValidateEntityInterface, EntityIdInterfac
         return $this->id;
     }
 
-    public function setEntityId($value) : void
+    public function setEntityId($value): void
     {
         $this->entityId = $value;
     }
@@ -81,7 +64,7 @@ class EntityAttributeEntity implements ValidateEntityInterface, EntityIdInterfac
         return $this->entityId;
     }
 
-    public function setattributeId($value) : void
+    public function setattributeId($value): void
     {
         $this->attributeId = $value;
     }
@@ -111,7 +94,7 @@ class EntityAttributeEntity implements ValidateEntityInterface, EntityIdInterfac
         $this->isRequired = $isRequired;
     }
 
-    public function setName($value) : void
+    public function setName($value): void
     {
         $this->name = $value;
     }
@@ -121,7 +104,7 @@ class EntityAttributeEntity implements ValidateEntityInterface, EntityIdInterfac
         return $this->name;
     }
 
-    public function setTitle($value) : void
+    public function setTitle($value): void
     {
         $this->title = $value;
     }
@@ -131,7 +114,7 @@ class EntityAttributeEntity implements ValidateEntityInterface, EntityIdInterfac
         return $this->title;
     }
 
-    public function setDescription($value) : void
+    public function setDescription($value): void
     {
         $this->description = $value;
     }
@@ -141,7 +124,7 @@ class EntityAttributeEntity implements ValidateEntityInterface, EntityIdInterfac
         return $this->description;
     }
 
-    public function setSort($value) : void
+    public function setSort($value): void
     {
         $this->sort = $value;
     }
@@ -151,7 +134,7 @@ class EntityAttributeEntity implements ValidateEntityInterface, EntityIdInterfac
         return $this->sort;
     }
 
-    public function setStatus($value) : void
+    public function setStatus($value): void
     {
         $this->status = $value;
     }
