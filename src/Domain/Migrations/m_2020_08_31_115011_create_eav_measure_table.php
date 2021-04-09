@@ -20,7 +20,7 @@ class m_2020_08_31_115011_create_eav_measure_table extends BaseCreateTableMigrat
             $table->string('name')->nullable()->comment('Внутреннее имя');
             $table->string('title')->comment('Название');
             $table->string('short_title')->nullable()->comment('Короткое название');
-            $table->float('rate')->default(1)->comment('Коэффициент');
+            $table->float('rate')->nullable()->default(1)->comment('Коэффициент');
 
             $table->unique(['name']);
 
