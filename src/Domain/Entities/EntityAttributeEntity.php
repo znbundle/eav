@@ -30,6 +30,8 @@ class EntityAttributeEntity implements ValidateEntityByMetadataInterface, Entity
 
     private $status = null;
 
+    private $isList = false;
+
     private $attribute;
 
     public static function loadValidatorMetadata(ClassMetadata $metadata)
@@ -142,6 +144,16 @@ class EntityAttributeEntity implements ValidateEntityByMetadataInterface, Entity
     public function getStatus()
     {
         return $this->status;
+    }
+
+    public function isList(): bool
+    {
+        return $this->isList;
+    }
+
+    public function setIsList(bool $isList): void
+    {
+        $this->isList = $isList;
     }
 
     public function getAttribute(): ?AttributeEntity

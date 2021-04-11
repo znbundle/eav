@@ -22,6 +22,10 @@ class MeasureEntity implements ValidateEntityByMetadataInterface, EntityIdInterf
 
     private $rate = null;
 
+    private $base = null;
+
+    private $exponent = null;
+
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         $metadata->addPropertyConstraint('id', new Assert\NotBlank);
@@ -92,6 +96,25 @@ class MeasureEntity implements ValidateEntityByMetadataInterface, EntityIdInterf
         return $this->rate;
     }
 
+    public function getBase()
+    {
+        return $this->base;
+    }
+
+    public function setBase($base): void
+    {
+        $this->base = $base;
+    }
+
+    public function getExponent()
+    {
+        return $this->exponent;
+    }
+
+    public function setExponent($exponent): void
+    {
+        $this->exponent = $exponent;
+    }
 
 }
 
