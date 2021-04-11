@@ -44,6 +44,7 @@ class EntityAttributeEntity implements ValidateEntityByMetadataInterface, Entity
         $metadata->addPropertyConstraint('description', new Assert\NotBlank);
         $metadata->addPropertyConstraint('sort', new Assert\NotBlank);
         $metadata->addPropertyConstraint('status', new Assert\NotBlank);
+//        $metadata->addPropertyConstraint('isList', new Assert\NotBlank);
     }
 
     public function setId($value): void
