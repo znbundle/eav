@@ -22,7 +22,7 @@ class m_2020_08_31_115031_create_eav_entity_attribute_table extends BaseCreateTa
             $table->string('default')->nullable()->comment('Значение поумолчанию');
             $table->string('name')->nullable()->comment('Внутреннее имя');
             $table->string('title')->nullable()->comment('Название');
-            $table->string('description')->nullable()->comment('');
+            $table->string('description')->nullable()->comment('Описание');
             $table->integer('sort')->default(10)->comment('Порядок сортировки');
             $table->integer('status')->default(1)->comment('Статус');
 
