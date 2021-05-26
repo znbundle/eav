@@ -2,7 +2,6 @@
 
 namespace ZnBundle\Eav\Domain\Services;
 
-use Symfony\Component\PropertyAccess\PropertyAccess;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
@@ -19,17 +18,13 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
 
     private $attributeRepository;
 
-    //private $formFactory;
-
     public function __construct(
         EntityRepositoryInterface $repository,
         AttributeRepositoryInterface $attributeRepository
-        //FormFactoryInterface $formFactory
     )
     {
         $this->setRepository($repository);
         $this->attributeRepository = $attributeRepository;
-        //$this->formFactory = $formFactory;
     }
 
     public function oneByIdWithRelations($id, Query $query = null): EntityEntity
@@ -57,21 +52,53 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
      * @return object
      * @throws UnprocessibleEntityException
      */
-    public function validate(int $entityId, array $data): object
+    public function validate(int $entityId, array $data): DynamicEntity
     {
         $entityEntity = $this->oneByIdWithRelations($entityId);
         $dynamicEntity = new DynamicEntity($entityEntity);
         //$dynamicEntity = $this->createEntityById($entityId);
+        $data = $this->normalizeData($data, $entityEntity);
         EntityHelper::setAttributes($dynamicEntity, $data);
-        $propertyAccessor = PropertyAccess::createPropertyAccessor();
-        foreach ($entityEntity->getAttributes() as $attributeEntity) {
-            $value = $propertyAccessor->getValue($dynamicEntity, $attributeEntity->getName());
-            if ($attributeEntity->getDefault() !== null && $value === null) {
-                $propertyAccessor->setValue($dynamicEntity, $attributeEntity->getName(), $attributeEntity->getDefault());
-            }
-        }
         $this->validateEntity($dynamicEntity);
         return $dynamicEntity;
+    }
+
+    public function normalize(int $entityId, array $data = []): DynamicEntity
+    {
+        $entityEntity = $this->oneByIdWithRelations($entityId);
+        $dynamicEntity = new DynamicEntity($entityEntity);
+        $data = $this->normalizeData($data, $entityEntity);
+        EntityHelper::setAttributes($dynamicEntity, $data);
+        //$this->validateEntity($dynamicEntity);
+        return $dynamicEntity;
+    }
+    
+    private function normalizeData(array $data, EntityEntity $entityEntity)
+    {
+        foreach ($entityEntity->getAttributes() as $attributeEntity) {
+            $attributeName = $attributeEntity->getName();
+            $default = $attributeEntity->getDefault();
+            $type = $attributeEntity->getType();
+            $value = $data[$attributeName] ?? null;
+            if ($default !== null && $value === null) {
+                $value = $default;
+            }
+            $value = $this->typeCast($value, $type);
+            $data[$attributeName] = $value;
+        }
+        return $data;
+    }
+
+    private function typeCast($value, string $type)
+    {
+        if ($value !== null) {
+            if ($type == 'boolean' || $type == 'bool') {
+                $value = boolval($value);
+            } elseif ($type == 'int' || $type == 'integer') {
+                $value = intval($value);
+            }
+        }
+        return $value;
     }
 
     private function validateEntity($dynamicEntity)

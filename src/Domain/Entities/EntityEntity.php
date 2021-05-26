@@ -73,9 +73,17 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
                     'choices' => EntityHelper::getColumn($enumCollection, 'name'),
                 ]);
             }
-            if ($attributeEntity->getIsRequired()) {
+            $isBoolean = $attributeEntity->getType() == 'boolean' || $attributeEntity->getType() == 'bool';
+            if($isBoolean) {
+                $rules[$attributeName][] = new Assert\Choice([
+                    'choices' => [true, false],
+                ]);
+            } elseif($attributeEntity->getIsRequired()) {
                 $rules[$attributeName][] = new Assert\NotBlank;
             }
+            /*if ($attributeEntity->getIsRequired() && !$isBoolean) {
+                $rules[$attributeName][] = new Assert\NotBlank;
+            }*/
         }
         return $rules;
     }
