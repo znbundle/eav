@@ -3,6 +3,7 @@
 namespace ZnBundle\Eav\Domain\Entities;
 
 use Illuminate\Support\Collection;
+use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Domain\Helpers\EntityHelper;
@@ -45,6 +46,9 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
         return null;
     }
 
+    /**
+     * @return array|null|Constraint[]
+     */
     public function getRules()
     {
         $attributesCollection = $this->getAttributes();

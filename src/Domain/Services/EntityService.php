@@ -2,12 +2,12 @@
 
 namespace ZnBundle\Eav\Domain\Services;
 
+use Symfony\Component\PropertyAccess\PropertyAccess;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
-use Symfony\Component\PropertyAccess\PropertyAccess;
 use ZnCore\Domain\Base\BaseCrudService;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
@@ -19,10 +19,17 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
 
     private $attributeRepository;
 
-    public function __construct(EntityRepositoryInterface $repository, AttributeRepositoryInterface $attributeRepository)
+    //private $formFactory;
+
+    public function __construct(
+        EntityRepositoryInterface $repository,
+        AttributeRepositoryInterface $attributeRepository
+        //FormFactoryInterface $formFactory
+    )
     {
         $this->setRepository($repository);
         $this->attributeRepository = $attributeRepository;
+        //$this->formFactory = $formFactory;
     }
 
     public function oneByIdWithRelations($id, Query $query = null): EntityEntity
@@ -63,7 +70,18 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
                 $propertyAccessor->setValue($dynamicEntity, $attributeEntity->getName(), $attributeEntity->getDefault());
             }
         }
-        ValidationHelper::validateEntity($dynamicEntity);
+        $this->validateEntity($dynamicEntity);
         return $dynamicEntity;
+    }
+
+    private function validateEntity($dynamicEntity)
+    {
+        $violations = ValidationHelper::validate2222($dynamicEntity);
+        $errorCollection = ValidationHelper::createErrorCollectionFromViolationList($violations);
+        if ($errorCollection->count()) {
+            $exception = new UnprocessibleEntityException;
+            $exception->setErrorCollection($errorCollection);
+            throw $exception;
+        }
     }
 }
