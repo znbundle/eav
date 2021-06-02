@@ -26,7 +26,10 @@ class m_2020_08_31_115031_create_eav_entity_attribute_table extends BaseCreateTa
             $table->integer('sort')->default(10)->comment('Порядок сортировки');
             $table->integer('status')->default(1)->comment('Статус');
 
-            $table
+            $this->addForeign($table, 'entity_id', 'eav_entity');
+            $this->addForeign($table, 'attribute_id', 'eav_attribute');
+
+            /*$table
                 ->foreign('entity_id')
                 ->references('id')
                 ->on($this->encodeTableName('eav_entity'))
@@ -37,7 +40,7 @@ class m_2020_08_31_115031_create_eav_entity_attribute_table extends BaseCreateTa
                 ->references('id')
                 ->on($this->encodeTableName('eav_attribute'))
                 ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);
+                ->onUpdate(ForeignActionEnum::CASCADE);*/
         };
     }
 

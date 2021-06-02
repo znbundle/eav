@@ -24,12 +24,14 @@ class m_2020_08_31_115011_create_eav_measure_table extends BaseCreateTableMigrat
 
             $table->unique(['name']);
 
-            $table
+            $this->addForeign($table, 'parent_id', 'eav_measure');
+
+            /*$table
                 ->foreign('parent_id')
                 ->references('id')
                 ->on($this->encodeTableName('eav_measure'))
                 ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);
+                ->onUpdate(ForeignActionEnum::CASCADE);*/
         };
     }
 

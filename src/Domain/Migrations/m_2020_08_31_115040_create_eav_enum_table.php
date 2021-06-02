@@ -22,12 +22,14 @@ class m_2020_08_31_115040_create_eav_enum_table extends BaseCreateTableMigration
             $table->integer('sort')->default(10)->comment('Порядок сортировки');
             $table->integer('status')->default(1)->comment('Статус');
 
-            $table
+            $this->addForeign($table, 'attribute_id', 'eav_attribute');
+
+            /*$table
                 ->foreign('attribute_id')
                 ->references('id')
                 ->on($this->encodeTableName('eav_attribute'))
                 ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);
+                ->onUpdate(ForeignActionEnum::CASCADE);*/
 
         };
     }

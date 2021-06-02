@@ -22,12 +22,14 @@ class m_2020_08_31_115020_create_eav_entity_table extends BaseCreateTableMigrati
             $table->text('handler')->nullable()->comment('Класс обработчика');
             $table->integer('status')->default(1)->comment('Статус');
 
-            $table
+            $this->addForeign($table, 'book_id', 'eav_category');
+
+            /*$table
                 ->foreign('book_id')
                 ->references('id')
                 ->on($this->encodeTableName('eav_category'))
                 ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);
+                ->onUpdate(ForeignActionEnum::CASCADE);*/
 
         };
     }
