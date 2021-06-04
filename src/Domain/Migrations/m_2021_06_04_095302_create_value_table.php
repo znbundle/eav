@@ -23,6 +23,8 @@ class m_2021_06_04_095302_create_value_table extends BaseCreateTableMigration
             $table->dateTime('created_at')->comment('Время создания');
             $table->dateTime('updated_at')->nullable()->comment('Время обновления');
 
+            $table->unique(['entity_type_id', 'attribute_id']);
+
             $this->addForeign($table, 'entity_type_id', 'eav_entity');
             $this->addForeign($table, 'attribute_id', 'eav_attribute');
         };

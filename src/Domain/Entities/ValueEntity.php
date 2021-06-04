@@ -47,7 +47,9 @@ class ValueEntity implements ValidateEntityByMetadataInterface, UniqueInterface,
 
     public function unique() : array
     {
-        return [];
+        return [
+            ['entity_type_id', 'attribute_id']
+        ];
     }
 
     public function setId($value) : void
