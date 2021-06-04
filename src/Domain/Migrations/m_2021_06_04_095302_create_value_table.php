@@ -15,17 +15,17 @@ class m_2021_06_04_095302_create_value_table extends BaseCreateTableMigration
     {
         return function (Blueprint $table) {
             $table->integer('id')->autoIncrement()->comment('Идентификатор');
-            $table->integer('entity_type_id')->comment('ID типа сущности');
-            $table->integer('entity_id')->comment('ID сущности');
+            $table->integer('entity_id')->comment('ID типа сущности');
+            $table->integer('record_id')->comment('ID записи');
             $table->integer('attribute_id')->comment('ID атрибута');
             $table->string('value')->comment('Значение');
             $table->smallInteger('status_id')->comment('Статус');
             $table->dateTime('created_at')->comment('Время создания');
             $table->dateTime('updated_at')->nullable()->comment('Время обновления');
 
-            $table->unique(['entity_type_id', 'attribute_id']);
+            $table->unique(['entity_id', 'attribute_id']);
 
-            $this->addForeign($table, 'entity_type_id', 'eav_entity');
+            $this->addForeign($table, 'entity_id', 'eav_entity');
             $this->addForeign($table, 'attribute_id', 'eav_attribute');
         };
     }

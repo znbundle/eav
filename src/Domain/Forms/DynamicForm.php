@@ -33,17 +33,17 @@ class DynamicForm implements BuildFormInterface, ToArrayInterface
         }
     }
 
-    public function toArray(): array
-    {
-        $values = [];
-        /** @var AttributeEntity[] | Collection $attributesCollection */
-        $attributesCollection = $this->_entityEntity->getAttributes();
-        foreach ($attributesCollection as $attributeEntity) {
-            $name = $attributeEntity->getName();
-            $values[$name] = $this->__get($name);
-        }
-        return $values;
-    }
+//    public function toArray(): array
+//    {
+//        $values = [];
+//        /** @var AttributeEntity[] | Collection $attributesCollection */
+//        $attributesCollection = $this->_entityEntity->getAttributes();
+//        foreach ($attributesCollection as $attributeEntity) {
+//            $name = $attributeEntity->getName();
+//            $values[$name] = $this->__get($name);
+//        }
+//        return $values;
+//    }
 
     public function buildForm(FormBuilderInterface $formBuilder)
     {

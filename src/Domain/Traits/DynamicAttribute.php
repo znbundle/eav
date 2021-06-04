@@ -3,7 +3,9 @@
 namespace ZnBundle\Eav\Domain\Traits;
 
 use Exception;
+use ZnBundle\Eav\Domain\Entities\AttributeEntity;
 use ZnCore\Base\Legacy\Yii\Helpers\Inflector;
+use ZnCore\Base\Libs\ArrayTools\Helpers\Collection;
 
 trait DynamicAttribute
 {
@@ -49,5 +51,14 @@ trait DynamicAttribute
         if (!$has) {
             throw new Exception('Not found attribute "' . $attribute . '"!');
         }
+    }
+
+    public function toArray(): array
+    {
+        $values = [];
+        foreach ($this->_attributes as $name) {
+            $values[$name] = $this->__get($name);
+        }
+        return $values;
     }
 }

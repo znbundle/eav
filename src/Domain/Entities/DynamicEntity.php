@@ -2,10 +2,8 @@
 
 namespace ZnBundle\Eav\Domain\Entities;
 
-use Exception;
 use InvalidArgumentException;
 use ZnBundle\Eav\Domain\Traits\DynamicAttribute;
-use ZnCore\Base\Legacy\Yii\Helpers\Inflector;
 use ZnCore\Domain\Interfaces\Entity\EntityAttributesInterface;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;

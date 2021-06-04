@@ -14,9 +14,9 @@ class ValueEntity implements ValidateEntityByMetadataInterface, UniqueInterface,
 
     private $id = null;
 
-    private $entityTypeId = null;
-
     private $entityId = null;
+
+    private $recordId = null;
 
     private $attributeId = null;
 
@@ -28,6 +28,8 @@ class ValueEntity implements ValidateEntityByMetadataInterface, UniqueInterface,
 
     private $updatedAt = null;
 
+    private $attribute;
+
     public function __construct()
     {
         $this->setCreatedAt(new \DateTime());
@@ -36,8 +38,8 @@ class ValueEntity implements ValidateEntityByMetadataInterface, UniqueInterface,
 
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        $metadata->addPropertyConstraint('entityTypeId', new Assert\NotBlank);
         $metadata->addPropertyConstraint('entityId', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('recordId', new Assert\NotBlank);
         $metadata->addPropertyConstraint('attributeId', new Assert\NotBlank);
         $metadata->addPropertyConstraint('value', new Assert\NotBlank);
         $metadata->addPropertyConstraint('statusId', new Assert\NotBlank);
@@ -48,7 +50,7 @@ class ValueEntity implements ValidateEntityByMetadataInterface, UniqueInterface,
     public function unique() : array
     {
         return [
-            ['entity_type_id', 'attribute_id']
+            ['entity_id', 'attribute_id']
         ];
     }
 
@@ -62,16 +64,6 @@ class ValueEntity implements ValidateEntityByMetadataInterface, UniqueInterface,
         return $this->id;
     }
 
-    public function setEntityTypeId($value) : void
-    {
-        $this->entityTypeId = $value;
-    }
-
-    public function getEntityTypeId()
-    {
-        return $this->entityTypeId;
-    }
-
     public function setEntityId($value) : void
     {
         $this->entityId = $value;
@@ -80,6 +72,16 @@ class ValueEntity implements ValidateEntityByMetadataInterface, UniqueInterface,
     public function getEntityId()
     {
         return $this->entityId;
+    }
+
+    public function setRecordId($value) : void
+    {
+        $this->recordId = $value;
+    }
+
+    public function getRecordId()
+    {
+        return $this->recordId;
     }
 
     public function getAttributeId()
@@ -130,5 +132,15 @@ class ValueEntity implements ValidateEntityByMetadataInterface, UniqueInterface,
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    public function getAttribute(): ?AttributeEntity
+    {
+        return $this->attribute;
+    }
+
+    public function setAttribute(AttributeEntity $attribute): void
+    {
+        $this->attribute = $attribute;
     }
 }
