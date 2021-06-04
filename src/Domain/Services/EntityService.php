@@ -46,19 +46,15 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         return new DynamicEntity($entityEntity);
     }
 
-    /**
-     * @param int $entityId
-     * @param array $data
-     * @return object
-     * @throws UnprocessibleEntityException
-     */
     public function validate(int $entityId, array $data): DynamicEntity
     {
         $entityEntity = $this->oneByIdWithRelations($entityId);
         $dynamicEntity = new DynamicEntity($entityEntity);
         //$dynamicEntity = $this->createEntityById($entityId);
         $data = $this->normalizeData($data, $entityEntity);
+
         EntityHelper::setAttributes($dynamicEntity, $data);
+        //dd($entityEntity);
         $this->validateEntity($dynamicEntity);
         return $dynamicEntity;
     }
