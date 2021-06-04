@@ -2,9 +2,12 @@
 
 namespace ZnBundle\Eav\Domain\Repositories\Eloquent;
 
+use Illuminate\Support\Collection;
+use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\ValueEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\ValueRepositoryInterface;
+use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
 use ZnLib\Db\Base\BaseEloquentCrudRepository;
 
@@ -31,5 +34,14 @@ class ValueRepository extends BaseEloquentCrudRepository implements ValueReposit
                 'foreignRepositoryClass' => AttributeRepositoryInterface::class,
             ],
         ];
+    }
+
+    public function allValues(int $entityId, int $recordId, Query $query = null): Collection
+    {
+        $query = Query::forge($query);
+        $query->where('entity_id', $entityId);
+        $query->where('record_id', $recordId);
+        $query->with(['attribute']);
+        return $this->all($query);
     }
 }

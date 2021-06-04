@@ -12,6 +12,8 @@ use ZnCore\Domain\Libs\Query;
 interface EntityServiceInterface extends CrudServiceInterface
 {
 
+    public function updateEntity(DynamicEntity $dynamicEntity): void;
+
     public function createEntityById(int $id): DynamicEntity;
 
     public function createFormById(int $id): DynamicForm;

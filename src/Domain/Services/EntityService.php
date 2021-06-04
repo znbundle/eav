@@ -8,6 +8,8 @@ use ZnBundle\Eav\Domain\Forms\DynamicForm;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
+use ZnBundle\Eav\Domain\Interfaces\Services\ValueServiceInterface;
+use ZnCore\Base\Libs\App\Helpers\ContainerHelper;
 use ZnCore\Domain\Base\BaseCrudService;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
@@ -18,14 +20,17 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
 {
 
     private $attributeRepository;
+    //private $valueService;
 
     public function __construct(
         EntityRepositoryInterface $repository,
         AttributeRepositoryInterface $attributeRepository
+        //ValueServiceInterface $valueService
     )
     {
         $this->setRepository($repository);
         $this->attributeRepository = $attributeRepository;
+        //$this->valueService = $valueService;
     }
 
     public function oneByIdWithRelations($id, Query $query = null): EntityEntity
@@ -53,6 +58,20 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         return new DynamicForm($entityEntity);
     }
 
+    public function updateEntity(DynamicEntity $dynamicEntity): void
+    {
+        $recordId = $dynamicEntity->getId();
+        $this->validate($dynamicEntity->entityId(), $dynamicEntity->toArray());
+        $entityEntity = $this->oneByIdWithRelations($dynamicEntity->entityId());
+        /** @var ValueServiceInterface $valueService */
+        $valueService = ContainerHelper::getContainer()->get(ValueServiceInterface::class);
+        foreach ($entityEntity->getAttributes() as $attributeEntity) {
+            $name = $attributeEntity->getName();
+            $value = EntityHelper::getValue($dynamicEntity, $name);
+            $valueService->persistValue($attributeEntity, $dynamicEntity->entityId(), $recordId, $value);
+        }
+    }
+
     public function validate(int $entityId, array $data): DynamicEntity
     {
         $entityEntity = $this->oneByIdWithRelations($entityId);
@@ -75,7 +94,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         //$this->validateEntity($dynamicEntity);
         return $dynamicEntity;
     }
-    
+
     private function normalizeData(array $data, EntityEntity $entityEntity)
     {
         foreach ($entityEntity->getAttributes() as $attributeEntity) {

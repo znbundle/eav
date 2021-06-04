@@ -37,16 +37,11 @@ class ValueService extends BaseCrudService implements ValueServiceInterface
 
     public function oneRecord(int $entityId, int $recordId): DynamicEntity
     {
-        $dynamicEntity = $this->entityService->createEntityById($entityId);
-        $query = new Query();
-        $query->where('entity_id', $entityId);
-        $query->where('record_id', $recordId);
-        $query->with(['attribute']);
-        /** @var ValueEntity[] | Collection $valueCollection */
-        $valueCollection = $this->getRepository()->all($query);
+        $valueCollection = $this->getRepository()->allValues($entityId, $recordId);
         if($valueCollection->count() == 0) {
             throw new NotFoundException();
         }
+        $dynamicEntity = $this->entityService->createEntityById($entityId);
         foreach ($valueCollection as $valueEntity) {
             $name = $valueEntity->getAttribute()->getName();
             EntityHelper::setAttribute($dynamicEntity, $name, $valueEntity->getValue());
