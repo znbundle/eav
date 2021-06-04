@@ -4,6 +4,7 @@ namespace ZnBundle\Eav\Domain\Services;
 
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
+use ZnBundle\Eav\Domain\Forms\DynamicForm;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
@@ -44,6 +45,12 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
     {
         $entityEntity = $this->oneByIdWithRelations($id);
         return new DynamicEntity($entityEntity);
+    }
+
+    public function createFormById(int $id): DynamicForm
+    {
+        $entityEntity = $this->oneByIdWithRelations($id);
+        return new DynamicForm($entityEntity);
     }
 
     public function validate(int $entityId, array $data): DynamicEntity

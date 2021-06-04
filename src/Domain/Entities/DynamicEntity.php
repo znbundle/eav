@@ -4,6 +4,7 @@ namespace ZnBundle\Eav\Domain\Entities;
 
 use Exception;
 use InvalidArgumentException;
+use ZnBundle\Eav\Domain\Traits\DynamicAttribute;
 use ZnCore\Base\Legacy\Yii\Helpers\Inflector;
 use ZnCore\Domain\Interfaces\Entity\EntityAttributesInterface;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
@@ -12,8 +13,10 @@ use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
 class DynamicEntity implements ValidateEntityInterface, EntityIdInterface, EntityAttributesInterface
 {
 
+    use DynamicAttribute;
+
     protected $id;
-    protected $_attributes = [];
+//    protected $_attributes = [];
     protected $_validationRules = [];
 
     public function __construct(EntityEntity $entityEntity)
@@ -34,7 +37,7 @@ class DynamicEntity implements ValidateEntityInterface, EntityIdInterface, Entit
         $this->{$attribute} = $value;
     }
 
-    public function __get(string $attribute)
+    /*public function __get(string $attribute)
     {
         $attribute = Inflector::variablize($attribute);
         $this->checkHasAttribute($attribute);
@@ -60,17 +63,18 @@ class DynamicEntity implements ValidateEntityInterface, EntityIdInterface, Entit
         return $this->_attributes;
     }
 
-    public function validationRules(): array
-    {
-        return $this->_validationRules;
-    }
-
     private function checkHasAttribute(string $attribute)
     {
         $has = in_array($attribute, $this->_attributes);
         if (!$has) {
             throw new Exception('Not found attribute "' . $attribute . '"!');
         }
+    }
+    */
+
+    public function validationRules(): array
+    {
+        return $this->_validationRules;
     }
 
     public function setId($value): void

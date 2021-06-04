@@ -9,7 +9,6 @@ trait DynamicAttribute
 {
 
     protected $_attributes = [];
-    protected $_entityEntity;
 
     public function __set(string $attribute, $value)
     {
@@ -44,7 +43,7 @@ trait DynamicAttribute
         return $this->_attributes;
     }
 
-    private function checkHasAttribute(string $attribute)
+    protected function checkHasAttribute(string $attribute)
     {
         $has = in_array($attribute, $this->_attributes);
         if (!$has) {
