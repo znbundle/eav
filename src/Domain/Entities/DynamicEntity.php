@@ -30,14 +30,14 @@ class DynamicEntity implements ValidateEntityInterface, EntityIdInterface, Entit
         }
     }
 
-    public function __set(string $attribute, $value)
+    /*public function __set(string $attribute, $value)
     {
         $attribute = Inflector::variablize($attribute);
         $this->checkHasAttribute($attribute);
         $this->{$attribute} = $value;
     }
 
-    /*public function __get(string $attribute)
+    public function __get(string $attribute)
     {
         $attribute = Inflector::variablize($attribute);
         $this->checkHasAttribute($attribute);
