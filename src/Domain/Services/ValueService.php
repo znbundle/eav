@@ -39,6 +39,7 @@ class ValueService extends BaseCrudService implements ValueServiceInterface
     {
         $dynamicEntity = $this->entityService->createEntityById($entityId);
         $query = new Query();
+        $query->where('entity_id', $entityId);
         $query->where('record_id', $recordId);
         $query->with(['attribute']);
         /** @var ValueEntity[] | Collection $valueCollection */
