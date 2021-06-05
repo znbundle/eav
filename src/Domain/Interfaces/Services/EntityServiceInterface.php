@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Interfaces\Services;
 
+use Illuminate\Support\Collection;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnBundle\Eav\Domain\Forms\DynamicForm;
@@ -11,6 +12,10 @@ use ZnCore\Domain\Libs\Query;
 
 interface EntityServiceInterface extends CrudServiceInterface
 {
+
+    public function allByCategoryId(int $categoryId, Query $query = null): Collection;
+
+    public function oneByName(string $name, Query $query = null): EntityEntity;
 
     public function updateEntity(DynamicEntity $dynamicEntity): void;
 

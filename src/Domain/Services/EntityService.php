@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Services;
 
+use Illuminate\Support\Collection;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnBundle\Eav\Domain\Forms\DynamicForm;
@@ -9,6 +10,7 @@ use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\ValueServiceInterface;
+use ZnCore\Base\Exceptions\NotFoundException;
 use ZnCore\Base\Libs\App\Helpers\ContainerHelper;
 use ZnCore\Domain\Base\BaseCrudService;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
@@ -20,6 +22,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
 {
 
     private $attributeRepository;
+
     //private $valueService;
 
     public function __construct(
@@ -31,6 +34,30 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         $this->setRepository($repository);
         $this->attributeRepository = $attributeRepository;
         //$this->valueService = $valueService;
+    }
+
+    public function allByCategoryId(int $categoryId, Query $query = null): Collection
+    {
+        $query = Query::forge($query);
+        $query->where('book_id', $categoryId);
+        return $this->all($query);
+    }
+
+    public function oneByName(string $name, Query $query = null): EntityEntity
+    {
+        $query = Query::forge($query);
+        $query->where('name', $name);
+        /*$query->with([
+            'attributesTie.attribute',
+            //'attributesTie.attribute.enums',
+            //'attributesTie.attribute.unit',
+        ]);*/
+        /** @var EntityEntity $entity */
+        $collection = $this->getRepository()->all($query);
+        if ($collection->count() == 0) {
+            throw new NotFoundException();
+        }
+        return $collection->first();
     }
 
     public function oneByIdWithRelations($id, Query $query = null): EntityEntity
