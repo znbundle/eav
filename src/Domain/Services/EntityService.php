@@ -39,7 +39,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
     public function allByCategoryId(int $categoryId, Query $query = null): Collection
     {
         $query = Query::forge($query);
-        $query->where('book_id', $categoryId);
+        $query->where('category_id', $categoryId);
         return $this->all($query);
     }
 

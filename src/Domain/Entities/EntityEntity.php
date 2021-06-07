@@ -15,7 +15,7 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
 
     private $id = null;
 
-    private $bookId = null;
+    private $categoryId = null;
 
     private $name = null;
 
@@ -29,8 +29,7 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
 
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        $metadata->addPropertyConstraint('id', new Assert\NotBlank);
-        $metadata->addPropertyConstraint('bookId', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('categoryId', new Assert\NotBlank);
         $metadata->addPropertyConstraint('name', new Assert\NotBlank);
         $metadata->addPropertyConstraint('title', new Assert\NotBlank);
         $metadata->addPropertyConstraint('handler', new Assert\NotBlank);
@@ -98,14 +97,14 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
         return $this->id;
     }
 
-    public function setBookId($value): void
+    public function setCategoryId($value): void
     {
-        $this->bookId = $value;
+        $this->categoryId = $value;
     }
 
-    public function getBookId()
+    public function getCategoryId()
     {
-        return $this->bookId;
+        return $this->categoryId;
     }
 
     public function setName($value): void
