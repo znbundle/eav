@@ -2,12 +2,15 @@
 
 namespace ZnBundle\Eav\Domain\Entities;
 
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
+use ZnLib\Web\Symfony4\MicroApp\Interfaces\BuildFormInterface;
 
-class CategoryEntity implements ValidateEntityByMetadataInterface, EntityIdInterface
+class CategoryEntity implements ValidateEntityByMetadataInterface, EntityIdInterface, BuildFormInterface
 {
 
     private $id = null;
@@ -21,6 +24,17 @@ class CategoryEntity implements ValidateEntityByMetadataInterface, EntityIdInter
         $metadata->addPropertyConstraint('id', new Assert\NotBlank);
         $metadata->addPropertyConstraint('name', new Assert\NotBlank);
         $metadata->addPropertyConstraint('title', new Assert\NotBlank);
+    }
+
+    public function buildForm(FormBuilderInterface $formBuilder)
+    {
+        $formBuilder
+            ->add('name', TextType::class, [
+                'label' => 'name'
+            ])
+            ->add('title', TextType::class, [
+                'label' => 'title'
+            ]);
     }
 
     public function setId($value): void

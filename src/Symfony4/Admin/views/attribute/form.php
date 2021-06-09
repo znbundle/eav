@@ -22,29 +22,9 @@ $formRender = new FormRender($formView, $tokenManager);
 <?= $formRender->beginFrom() ?>
 
 <div class="form-group required has-error">
-    <?= $formRender->label('categoryId') ?>
-    <?= $formRender->input('categoryId', 'text') ?>
-    <?= $formRender->hint('categoryId') ?>
-</div>
-<div class="form-group required has-error">
-    <?= $formRender->label('name') ?>
-    <?= $formRender->input('name', 'text') ?>
-    <?= $formRender->hint('name') ?>
-</div>
-<div class="form-group required has-error">
     <?= $formRender->label('title') ?>
     <?= $formRender->input('title', 'text') ?>
     <?= $formRender->hint('title') ?>
-</div>
-<div class="form-group required has-error">
-    <?= $formRender->label('handler') ?>
-    <?= $formRender->input('handler', 'text') ?>
-    <?= $formRender->hint('handler') ?>
-</div>
-<div class="form-group required has-error">
-    <?= $formRender->label('status') ?>
-    <?= $formRender->input('status', 'text') ?>
-    <?= $formRender->hint('status') ?>
 </div>
 <div class="form-group">
     <?= $formRender->input('save', 'submit') ?>

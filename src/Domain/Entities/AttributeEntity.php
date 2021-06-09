@@ -3,12 +3,15 @@
 namespace ZnBundle\Eav\Domain\Entities;
 
 use Illuminate\Support\Collection;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
+use ZnLib\Web\Symfony4\MicroApp\Interfaces\BuildFormInterface;
 
-class AttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInterface
+class AttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInterface, BuildFormInterface
 {
 
     private $id = null;
@@ -45,6 +48,32 @@ class AttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInte
         $metadata->addPropertyConstraint('description', new Assert\NotBlank);
         $metadata->addPropertyConstraint('unitId', new Assert\NotBlank);
         $metadata->addPropertyConstraint('status', new Assert\NotBlank);
+    }
+
+    public function buildForm(FormBuilderInterface $formBuilder)
+    {
+        $formBuilder
+            ->add('name', TextType::class, [
+                'label' => 'name'
+            ])
+            ->add('type', TextType::class, [
+                'label' => 'type'
+            ])
+            ->add('default', TextType::class, [
+                'label' => 'default'
+            ])
+            ->add('title', TextType::class, [
+                'label' => 'title'
+            ])
+            ->add('description', TextType::class, [
+                'label' => 'description'
+            ])
+            ->add('unitId', TextType::class, [
+                'label' => 'unitId'
+            ])
+            ->add('status', TextType::class, [
+                'label' => 'status'
+            ]);
     }
 
     public function setId($value): void

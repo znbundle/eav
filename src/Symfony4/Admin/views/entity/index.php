@@ -15,10 +15,6 @@ use ZnLib\Web\Widgets\Collection\CollectionWidget;
 use ZnLib\Web\Widgets\Format\Formatters\ActionFormatter;
 use ZnLib\Web\Widgets\Format\Formatters\LinkFormatter;
 
-//$this->title = I18Next::t('info', 'certificate.list');
-
-//$statusWidget = new FilterWidget(StatusEnum::class, $filterModel);
-
 $attributes = [
     [
         'label' => 'ID',
@@ -48,21 +44,16 @@ $attributes = [
 ?>
 
 <div class="row">
-
     <div class="col-lg-12">
-
         <?= CollectionWidget::widget([
             'dataProvider' => $dataProvider,
             'attributes' => $attributes,
         ]) ?>
-
         <div class="float-left">
             <a class="btn btn-primary" href="<?= Url::to([$baseUri . '/create']) ?>" role="button">
                 <i class="fa fa-plus"></i>
                 <?= I18Next::t('core', 'action.create') ?>
             </a>
         </div>
-
     </div>
-
 </div>
