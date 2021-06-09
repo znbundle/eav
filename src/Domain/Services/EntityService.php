@@ -16,6 +16,7 @@ use ZnCore\Domain\Base\BaseCrudService;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Domain\Helpers\ValidationHelper;
+use ZnCore\Domain\Interfaces\Libs\EntityManagerInterface;
 use ZnCore\Domain\Libs\Query;
 
 class EntityService extends BaseCrudService implements EntityServiceInterface
@@ -27,10 +28,12 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
 
     public function __construct(
         EntityRepositoryInterface $repository,
+        EntityManagerInterface $entityManager,
         AttributeRepositoryInterface $attributeRepository
         //ValueServiceInterface $valueService
     )
     {
+        $this->setEntityManager($entityManager);
         $this->setRepository($repository);
         $this->attributeRepository = $attributeRepository;
         //$this->valueService = $valueService;

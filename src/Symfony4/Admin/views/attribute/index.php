@@ -2,26 +2,17 @@
 
 /**
  * @var $formView FormView|AbstractType[]
- * @var $entityCollection Collection | EntityEntity[]
- * @var DataProvider $dataProvider
+ * @var $dataProvider DataProvider
+ * @var $baseUri string
  */
 
-use Illuminate\Support\Collection;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormView;
-use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
-use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnCore\Base\Legacy\Yii\Helpers\Url;
-use ZnCore\Base\Libs\App\Helpers\ContainerHelper;
-use ZnLib\Web\Symfony4\MicroApp\Libs\FormRender;
-use ZnLib\Web\Widgets\Tab\TabWidget;
-
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
 use ZnCore\Domain\Libs\DataProvider;
 use ZnLib\Web\Widgets\Collection\CollectionWidget;
 use ZnLib\Web\Widgets\Format\Formatters\ActionFormatter;
-use ZnLib\Web\Widgets\Format\Formatters\ImageFormatter;
 use ZnLib\Web\Widgets\Format\Formatters\LinkFormatter;
 
 //$this->title = I18Next::t('info', 'certificate.list');
@@ -39,7 +30,7 @@ $attributes = [
         'sort' => true,
         'formatter' => [
             'class' => LinkFormatter::class,
-            'uri' => '/info/certificate/view',
+            'uri' => $baseUri . '/view',
         ],
     ],
     [
@@ -49,7 +40,7 @@ $attributes = [
                 'update',
                 'delete',
             ],
-            'baseUrl' => '/info/certificate',
+            'baseUrl' => $baseUri,
         ],
     ],
 ];
@@ -66,7 +57,7 @@ $attributes = [
         ]) ?>
 
         <div class="float-left">
-            <a class="btn btn-primary" href="<?= Url::to(['/info/certificate/create']) ?>" role="button">
+            <a class="btn btn-primary" href="<?= Url::to([$baseUri . '/create']) ?>" role="button">
                 <i class="fa fa-plus"></i>
                 <?= I18Next::t('core', 'action.create') ?>
             </a>

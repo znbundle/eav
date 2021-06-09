@@ -3,14 +3,19 @@
 namespace ZnBundle\Eav\Domain\Entities;
 
 use Illuminate\Support\Collection;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
+use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
+use ZnLib\Web\Symfony4\MicroApp\Interfaces\BuildFormInterface;
 
-class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterface
+class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterface, BuildFormInterface
 {
 
     private $id = null;
@@ -34,6 +39,26 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
         $metadata->addPropertyConstraint('title', new Assert\NotBlank);
         $metadata->addPropertyConstraint('handler', new Assert\NotBlank);
         $metadata->addPropertyConstraint('status', new Assert\NotBlank);
+    }
+
+    public function buildForm(FormBuilderInterface $formBuilder)
+    {
+        $formBuilder
+            ->add('categoryId', TextType::class, [
+                'label' => 'categoryId'
+            ])
+            ->add('name', TextType::class, [
+                'label' => 'name'
+            ])
+            ->add('title', TextType::class, [
+                'label' => 'title'
+            ])
+            ->add('handler', TextType::class, [
+                'label' => 'handler'
+            ])
+            ->add('status', TextType::class, [
+                'label' => 'status'
+            ]);
     }
 
     public function getAttributeNames()
@@ -155,7 +180,7 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
         return $this->attributes;
     }
 
-    public function setAttributes(Collection $attributes): void
+    public function setAttributes(?Collection $attributes): void
     {
         $this->attributes = $attributes;
     }
