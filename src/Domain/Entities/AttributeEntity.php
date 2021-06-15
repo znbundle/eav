@@ -2,12 +2,16 @@
 
 namespace ZnBundle\Eav\Domain\Entities;
 
+use App\Rpc\Domain\Enums\RpcCryptoProviderStrategyEnum;
 use Illuminate\Support\Collection;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
+use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
 use ZnCore\Base\Enums\StatusEnum;
+use ZnCore\Base\Helpers\EnumHelper;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
 use ZnLib\Web\Symfony4\MicroApp\Interfaces\BuildFormInterface;
@@ -44,10 +48,13 @@ class AttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInte
         //$metadata->addPropertyConstraint('id', new Assert\NotBlank);
 //        $metadata->addPropertyConstraint('name', new Assert\NotBlank);
         $metadata->addPropertyConstraint('type', new Assert\NotBlank);
-        $metadata->addPropertyConstraint('default', new Assert\NotBlank);
+        $metadata->addPropertyConstraint('type', new Assert\Choice([
+            'choices' => EnumHelper::getValues(AttributeTypeEnum::class),
+        ]));
+        //$metadata->addPropertyConstraint('default', new Assert\NotBlank);
         $metadata->addPropertyConstraint('title', new Assert\NotBlank);
-        $metadata->addPropertyConstraint('description', new Assert\NotBlank);
-        $metadata->addPropertyConstraint('unitId', new Assert\NotBlank);
+        //$metadata->addPropertyConstraint('description', new Assert\NotBlank);
+        //$metadata->addPropertyConstraint('unitId', new Assert\NotBlank);
         $metadata->addPropertyConstraint('unitId', new Assert\Positive());
 //        $metadata->addPropertyConstraint('status', new Assert\NotBlank);
     }
@@ -58,8 +65,9 @@ class AttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInte
             ->add('name', TextType::class, [
                 'label' => 'name'
             ])
-            ->add('type', TextType::class, [
+            ->add('type', ChoiceType::class, [
                 'label' => 'type',
+                'choices' => array_flip(EnumHelper::getOptions(AttributeTypeEnum::class)),
             ])
             ->add('default', TextType::class, [
                 'label' => 'default'
@@ -72,11 +80,10 @@ class AttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInte
             ])
             ->add('unitId', TextType::class, [
                 'label' => 'unitId'
-            ])
-            /*->add('status', TextType::class, [
+            ])/*->add('status', TextType::class, [
                 'label' => 'status'
             ])*/
-            ;
+        ;
     }
 
     public function setId($value): void
@@ -200,9 +207,8 @@ class AttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInte
         return $this->unit;
     }
 
-    public function setUnit(MeasureEntity $unit): void
+    public function setUnit(?MeasureEntity $unit): void
     {
         $this->unit = $unit;
     }
-
 }

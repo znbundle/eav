@@ -27,8 +27,13 @@ $formRender = new FormRender($formView, $tokenManager);
     <?= $formRender->hint('title') ?>
 </div>
 <div class="form-group">
+    <?= $formRender->label('name') ?>
+    <?= $formRender->input('name', 'text') ?>
+    <?= $formRender->hint('name') ?>
+</div>
+<div class="form-group">
     <?= $formRender->label('type') ?>
-    <?= $formRender->input('type', 'text') ?>
+    <?= $formRender->input('type', 'select') ?>
     <?= $formRender->hint('type') ?>
 </div>
 <div class="form-group">
