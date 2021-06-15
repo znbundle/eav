@@ -28,7 +28,7 @@ class MeasureEntity implements ValidateEntityByMetadataInterface, EntityIdInterf
 
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        $metadata->addPropertyConstraint('id', new Assert\NotBlank);
+        //$metadata->addPropertyConstraint('id', new Assert\NotBlank);
 //        $metadata->addPropertyConstraint('parentId', new Assert\NotBlank);
 //        $metadata->addPropertyConstraint('name', new Assert\NotBlank);
         $metadata->addPropertyConstraint('title', new Assert\NotBlank);

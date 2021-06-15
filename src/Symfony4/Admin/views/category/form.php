@@ -26,6 +26,12 @@ $formRender = new FormRender($formView, $tokenManager);
     <?= $formRender->input('title', 'text') ?>
     <?= $formRender->hint('title') ?>
 </div>
+<div class="form-group required has-error">
+    <?= $formRender->label('name') ?>
+    <?= $formRender->input('name', 'text') ?>
+    <?= $formRender->hint('name') ?>
+</div>
+
 <div class="form-group">
     <?= $formRender->input('save', 'submit') ?>
 </div>

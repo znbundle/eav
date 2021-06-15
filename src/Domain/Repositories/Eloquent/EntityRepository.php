@@ -7,6 +7,7 @@ use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityAttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
+use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
 use ZnLib\Db\Base\BaseEloquentCrudRepository;
 
@@ -21,6 +22,19 @@ class EntityRepository extends BaseEloquentCrudRepository implements EntityRepos
     public function getEntityClass(): string
     {
         return EntityEntity::class;
+    }
+
+    public function oneByName(string $name, Query $query = null): EntityEntity
+    {
+        $query = Query::forge($query);
+        $query->where('name', $name);
+        /*$query->with([
+            'attributesTie.attribute',
+            //'attributesTie.attribute.enums',
+            //'attributesTie.attribute.unit',
+        ]);*/
+        /** @var EntityEntity $entity */
+        return $this->one($query);
     }
 
     public function relations2()

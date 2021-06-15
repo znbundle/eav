@@ -4,6 +4,7 @@ namespace ZnBundle\Eav\Domain\Entities;
 
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
+use ZnCore\Base\Enums\StatusEnum;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
 
@@ -28,7 +29,7 @@ class EntityAttributeEntity implements ValidateEntityByMetadataInterface, Entity
 
     private $sort = null;
 
-    private $status = null;
+    private $status = StatusEnum::ENABLED;
 
     private $isList = false;
 
@@ -36,7 +37,7 @@ class EntityAttributeEntity implements ValidateEntityByMetadataInterface, Entity
 
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
-        $metadata->addPropertyConstraint('id', new Assert\NotBlank);
+        //$metadata->addPropertyConstraint('id', new Assert\NotBlank);
         $metadata->addPropertyConstraint('entityId', new Assert\NotBlank);
         $metadata->addPropertyConstraint('attributeId', new Assert\NotBlank);
         $metadata->addPropertyConstraint('name', new Assert\NotBlank);

@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
+use ZnCore\Base\Enums\StatusEnum;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
@@ -28,7 +29,7 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
 
     private $handler = null;
 
-    private $status = null;
+    private $status = StatusEnum::ENABLED;
 
     private $attributes = null;
 
@@ -56,9 +57,10 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
             ->add('handler', TextType::class, [
                 'label' => 'handler'
             ])
-            ->add('status', TextType::class, [
+            /*->add('status', TextType::class, [
                 'label' => 'status'
-            ]);
+            ])*/
+            ;
     }
 
     public function getAttributeNames()
