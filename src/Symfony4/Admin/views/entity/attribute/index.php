@@ -1,18 +1,21 @@
 <?php
 
 /**
+ * @var $formView FormView|AbstractType[]
+ * @var $collection ValidationEntity[] | Collection
  * @var $baseUri string
- * @var $this View
- * @var $entity AttributeEntity
  */
 
-use ZnBundle\Eav\Domain\Entities\AttributeEntity;
+use Illuminate\Support\Collection;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormView;
+use ZnBundle\Eav\Domain\Entities\ValidationEntity;
 use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
 use ZnCore\Base\Enums\StatusEnum;
+use ZnCore\Base\Legacy\Yii\Helpers\Url;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
-use ZnLib\Web\Symfony4\MicroApp\Helpers\ActionHelper;
-use ZnLib\Web\View\View;
-use ZnLib\Web\Widgets\Detail\DetailWidget;
+use ZnLib\Web\Widgets\Collection\CollectionWidget;
+use ZnLib\Web\Widgets\Format\Formatters\ActionFormatter;
 use ZnLib\Web\Widgets\Format\Formatters\BooleanFormatter;
 use ZnLib\Web\Widgets\Format\Formatters\EnumFormatter;
 use ZnLib\Web\Widgets\Format\Formatters\LinkFormatter;
@@ -25,10 +28,10 @@ $attributes = [
     [
         'label' => I18Next::t('core', 'main.attribute.title'),
         'attributeName' => 'title',
-        /*'formatter' => [
+        'formatter' => [
             'class' => LinkFormatter::class,
             'uri' => $baseUri . '/view',
-        ],*/
+        ],
     ],
     [
         'label' => I18Next::t('core', 'main.attribute.name'),
@@ -53,14 +56,14 @@ $attributes = [
         'label' => 'default',
         'attributeName' => 'default',
     ],
-    [
+    /*[
         'label' => 'description',
         'attributeName' => 'description',
     ],
     [
         'label' => 'unit_id',
         'attributeName' => 'unit_id',
-    ],
+    ],*/
     [
         'label' => 'status',
         'attributeName' => 'status',
@@ -69,38 +72,27 @@ $attributes = [
             'enumClass' => StatusEnum::class,
         ],
     ],
+    [
+        'formatter' => [
+            'class' => ActionFormatter::class,
+            'actions' => [
+                'update',
+                'delete',
+            ],
+            'baseUrl' => $baseUri,
+        ],
+    ],
 ];
 
 ?>
 
-<div class="row">
-    <div class="col-lg-12">
-
-        <?= DetailWidget::widget([
-            'entity' => $entity,
-            'attributes' => $attributes,
-        ]) ?>
-
-        <div class="mb-3">
-            <?= ActionHelper::generateUpdateAction($entity, $baseUri, ActionHelper::TYPE_BUTTON) ?>
-            <?= ActionHelper::generateDeleteAction($entity, $baseUri, ActionHelper::TYPE_BUTTON) ?>
-        </div>
-
-        <div class="mb-3">
-            <h3>Validation rules</h3>
-            <?= $this->renderFile(__DIR__ . '/validation/index.php', [
-                'collection' => $entity->getRules(),
-                'baseUri' => '/eav/validation',
-            ]); ?>
-        </div>
-
-        <div class="mb-3">
-            <h3>Enums</h3>
-            <?= $this->renderFile(__DIR__ . '/enum/index.php', [
-                'collection' => $entity->getEnums(),
-                'baseUri' => '/eav/enum',
-            ]); ?>
-        </div>
-
-    </div>
+<?= CollectionWidget::widget([
+    'collection' => $collection,
+    'attributes' => $attributes,
+]) ?>
+<div class="float-left111">
+    <a class="btn btn-primary" href="<?= Url::to([$baseUri . '/create']) ?>" role="button">
+        <i class="fa fa-plus"></i>
+        <?= I18Next::t('core', 'action.create') ?>
+    </a>
 </div>

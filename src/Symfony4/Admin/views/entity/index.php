@@ -30,6 +30,10 @@ $attributes = [
         ],
     ],
     [
+        'label' => I18Next::t('core', 'main.attribute.name'),
+        'attributeName' => 'name',
+    ],
+    [
         'formatter' => [
             'class' => ActionFormatter::class,
             'actions' => [
@@ -49,7 +53,7 @@ $attributes = [
             'dataProvider' => $dataProvider,
             'attributes' => $attributes,
         ]) ?>
-        <div class="float-left">
+        <div class="float-left111">
             <a class="btn btn-primary" href="<?= Url::to([$baseUri . '/create']) ?>" role="button">
                 <i class="fa fa-plus"></i>
                 <?= I18Next::t('core', 'action.create') ?>

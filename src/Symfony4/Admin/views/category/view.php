@@ -26,6 +26,10 @@ $attributes = [
             'uri' => $baseUri . '/view',
         ],
     ],
+    [
+        'label' => I18Next::t('core', 'main.attribute.name'),
+        'attributeName' => 'name',
+    ],
 ];
 
 ?>
@@ -38,7 +42,7 @@ $attributes = [
             'attributes' => $attributes,
         ]) ?>
 
-        <div class="float-left">
+        <div class="float-left111">
             <?= ActionHelper::generateUpdateAction($entity, $baseUri, ActionHelper::TYPE_BUTTON) ?>
             <?= ActionHelper::generateDeleteAction($entity, $baseUri, ActionHelper::TYPE_BUTTON) ?>
         </div>

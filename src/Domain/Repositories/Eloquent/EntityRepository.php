@@ -5,10 +5,13 @@ namespace ZnBundle\Eav\Domain\Repositories\Eloquent;
 use Illuminate\Support\Collection;
 use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
+use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
+use ZnBundle\Eav\Domain\Interfaces\Repositories\CategoryRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityAttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
+use ZnCore\Domain\Relations\relations\OneToOneRelation;
 use ZnLib\Db\Base\BaseEloquentCrudRepository;
 
 class EntityRepository extends BaseEloquentCrudRepository implements EntityRepositoryInterface
@@ -40,6 +43,12 @@ class EntityRepository extends BaseEloquentCrudRepository implements EntityRepos
     public function relations2()
     {
         return [
+            [
+                'class' => OneToOneRelation::class,
+                'relationAttribute' => 'category_id',
+                'relationEntityAttribute' => 'category',
+                'foreignRepositoryClass' => CategoryRepositoryInterface::class,
+            ],
             [
                 'class' => OneToManyRelation::class,
                 'relationAttribute' => 'id',
