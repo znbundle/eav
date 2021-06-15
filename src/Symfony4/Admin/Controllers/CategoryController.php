@@ -35,25 +35,4 @@ class CategoryController extends BaseWebCrudController implements ControllerAcce
         $title = 'EAV category';
         $this->getBreadcrumbWidget()->add($title, Url::to([$this->getBaseUri()]));
     }
-
-    public function access(): array
-    {
-        return [
-            'index' => [
-                CommonPermissionEnum::ADMIN_ONLY,
-            ],
-            'view' => [
-                CommonPermissionEnum::ADMIN_ONLY,
-            ],
-            'update' => [
-                CommonPermissionEnum::ADMIN_ONLY,
-            ],
-            'delete' => [
-                CommonPermissionEnum::ADMIN_ONLY,
-            ],
-            'create' => [
-                CommonPermissionEnum::ADMIN_ONLY,
-            ],
-        ];
-    }
 }

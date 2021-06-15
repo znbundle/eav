@@ -11,6 +11,7 @@ use ZnCore\Base\Legacy\Yii\Helpers\Url;
 use ZnLib\Web\Symfony4\MicroApp\BaseWebCrudController;
 use ZnLib\Web\Symfony4\MicroApp\Interfaces\ControllerAccessInterface;
 use ZnLib\Web\Widgets\BreadcrumbWidget;
+use ZnSandbox\Sandbox\Casbin\Domain\Enums\Rbac\ExtraPermissionEnum;
 
 class AttributeController extends BaseWebCrudController implements ControllerAccessInterface
 {
@@ -36,24 +37,5 @@ class AttributeController extends BaseWebCrudController implements ControllerAcc
         $this->getBreadcrumbWidget()->add($title, Url::to([$this->getBaseUri()]));
     }
 
-    public function access(): array
-    {
-        return [
-            'index' => [
-                CommonPermissionEnum::ADMIN_ONLY,
-            ],
-            'view' => [
-                CommonPermissionEnum::ADMIN_ONLY,
-            ],
-            'update' => [
-                CommonPermissionEnum::ADMIN_ONLY,
-            ],
-            'delete' => [
-                CommonPermissionEnum::ADMIN_ONLY,
-            ],
-            'create' => [
-                CommonPermissionEnum::ADMIN_ONLY,
-            ],
-        ];
-    }
+
 }
