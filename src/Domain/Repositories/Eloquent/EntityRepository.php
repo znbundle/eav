@@ -70,9 +70,11 @@ class EntityRepository extends BaseEloquentCrudRepository implements EntityRepos
                             if ($entityAttributeEntity->getIsRequired() !== null) {
                                 $attributeEntity->setIsRequired($entityAttributeEntity->getIsRequired());
                             }
+                            $attributeEntity->setTie($entityAttributeEntity);
                             $filedCollection->add($attributeEntity);
                         }
                         $entityEntity->setAttributes($filedCollection);
+                        $entityEntity->setAttributesTie($entityAttributeCollection);
                     }
                     return $collection;
                 }

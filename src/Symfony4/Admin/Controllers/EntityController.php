@@ -2,7 +2,6 @@
 
 namespace ZnBundle\Eav\Symfony4\Admin\Controllers;
 
-use App\Common\Enums\Rbac\CommonPermissionEnum;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

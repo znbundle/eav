@@ -2,7 +2,6 @@
 
 namespace ZnBundle\Eav\Symfony4\Admin\Controllers;
 
-use App\Common\Enums\Rbac\CommonPermissionEnum;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\CategoryServiceInterface;

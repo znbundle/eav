@@ -33,6 +33,8 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
 
     private $attributes = null;
 
+    private $attributesTie = null;
+
     private $category = null;
 
     public static function loadValidatorMetadata(ClassMetadata $metadata)
@@ -187,6 +189,16 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
     public function setAttributes(?Collection $attributes): void
     {
         $this->attributes = $attributes;
+    }
+
+    public function getAttributesTie(): ?Collection
+    {
+        return $this->attributesTie;
+    }
+
+    public function setAttributesTie(Collection $attributesTie): void
+    {
+        $this->attributesTie = $attributesTie;
     }
 
     public function getCategory(): ?CategoryEntity

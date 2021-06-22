@@ -2,13 +2,20 @@
 
 namespace ZnBundle\Eav\Domain\Entities;
 
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
+use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
 use ZnCore\Base\Enums\StatusEnum;
+use ZnCore\Base\Helpers\EnumHelper;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Entity\ValidateEntityByMetadataInterface;
+use ZnLib\Web\Symfony4\MicroApp\Interfaces\BuildFormInterface;
 
-class EntityAttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInterface
+class EntityAttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInterface, BuildFormInterface
 {
 
     private $id = null;
@@ -27,7 +34,7 @@ class EntityAttributeEntity implements ValidateEntityByMetadataInterface, Entity
 
     private $description = null;
 
-    private $sort = null;
+    private $sort = 10;
 
     private $status = StatusEnum::ENABLED;
 
@@ -40,12 +47,34 @@ class EntityAttributeEntity implements ValidateEntityByMetadataInterface, Entity
         //$metadata->addPropertyConstraint('id', new Assert\NotBlank);
         $metadata->addPropertyConstraint('entityId', new Assert\NotBlank);
         $metadata->addPropertyConstraint('attributeId', new Assert\NotBlank);
-        $metadata->addPropertyConstraint('name', new Assert\NotBlank);
-        $metadata->addPropertyConstraint('title', new Assert\NotBlank);
-        $metadata->addPropertyConstraint('description', new Assert\NotBlank);
+//        $metadata->addPropertyConstraint('name', new Assert\NotBlank);
+//        $metadata->addPropertyConstraint('title', new Assert\NotBlank);
+//        $metadata->addPropertyConstraint('description', new Assert\NotBlank);
         $metadata->addPropertyConstraint('sort', new Assert\NotBlank);
         $metadata->addPropertyConstraint('status', new Assert\NotBlank);
 //        $metadata->addPropertyConstraint('isList', new Assert\NotBlank);
+    }
+
+    public function buildForm(FormBuilderInterface $formBuilder)
+    {
+        // id	entity_id	attribute_id						sort	status	is_list
+        $formBuilder
+            ->add('name', TextType::class, [
+                'label' => 'name'
+            ])
+            ->add('title', TextType::class, [
+                'label' => 'title'
+            ])
+            ->add('is_required', CheckboxType::class, [
+                'label' => 'is_required'
+            ])
+            ->add('default', TextType::class, [
+                'label' => 'default'
+            ])
+            ->add('description', TextType::class, [
+                'label' => 'description'
+            ])
+        ;
     }
 
     public function setId($value): void
@@ -163,7 +192,7 @@ class EntityAttributeEntity implements ValidateEntityByMetadataInterface, Entity
         return $this->attribute;
     }
 
-    public function setAttribute(AttributeEntity $attribute): void
+    public function setAttribute(?AttributeEntity $attribute): void
     {
         $this->attribute = $attribute;
     }

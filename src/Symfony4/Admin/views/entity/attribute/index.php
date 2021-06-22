@@ -16,9 +16,12 @@ use ZnCore\Base\Legacy\Yii\Helpers\Url;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnLib\Web\Widgets\Collection\CollectionWidget;
 use ZnLib\Web\Widgets\Format\Formatters\ActionFormatter;
+use ZnLib\Web\Widgets\Format\Formatters\Actions\UpdateAction;
 use ZnLib\Web\Widgets\Format\Formatters\BooleanFormatter;
 use ZnLib\Web\Widgets\Format\Formatters\EnumFormatter;
 use ZnLib\Web\Widgets\Format\Formatters\LinkFormatter;
+
+//dd($collection);
 
 $attributes = [
     [
@@ -27,19 +30,20 @@ $attributes = [
     ],
     [
         'label' => I18Next::t('core', 'main.attribute.title'),
-        'attributeName' => 'title',
+        'attributeName' => 'attribute.title',
         'formatter' => [
             'class' => LinkFormatter::class,
+            'linkAttribute' => 'attribute.id',
             'uri' => $baseUri . '/view',
         ],
     ],
     [
         'label' => I18Next::t('core', 'main.attribute.name'),
-        'attributeName' => 'name',
+        'attributeName' => 'attribute.name',
     ],
     [
         'label' => I18Next::t('core', 'main.attribute.type'),
-        'attributeName' => 'type',
+        'attributeName' => 'attribute.type',
         'formatter' => [
             'class' => EnumFormatter::class,
             'enumClass' => AttributeTypeEnum::class,
@@ -75,11 +79,43 @@ $attributes = [
     [
         'formatter' => [
             'class' => ActionFormatter::class,
+            'actionDefinitions' => [
+                'sortUp' => [
+                    'class' => UpdateAction::class,
+                    'icon' => 'fas fa-arrow-up',
+                    'urlAction' => 'sort-up',
+                    'title' => 'Up',
+                ],
+                'sortDown' => [
+                    'class' => UpdateAction::class,
+                    'icon' => 'fas fa-arrow-down',
+                    'urlAction' => 'sort-down',
+                    'title' => 'Down',
+                ],
+                'attach' => [
+                    'class' => UpdateAction::class,
+                    'icon' => 'fas fa-link',
+                    'urlAction' => 'attach',
+                    'title' => 'Attach',
+                    'type' => 'success',
+                ],
+                'detach' => [
+                    'class' => UpdateAction::class,
+                    'icon' => 'fas fa-unlink',
+                    'urlAction' => 'detach',
+                    'title' => 'Detach',
+                    'type' => 'danger',
+                ],
+            ],
             'actions' => [
+                'sortUp',
+                'sortDown',
+                //'attach',
+                //'detach',
                 'update',
                 'delete',
             ],
-            'baseUrl' => $baseUri,
+            'baseUrl' => '/eav/entity-attribute',
         ],
     ],
 ];

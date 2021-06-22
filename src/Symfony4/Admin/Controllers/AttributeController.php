@@ -2,7 +2,6 @@
 
 namespace ZnBundle\Eav\Symfony4\Admin\Controllers;
 
-use App\Common\Enums\Rbac\CommonPermissionEnum;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\AttributeServiceInterface;
@@ -11,7 +10,6 @@ use ZnCore\Base\Legacy\Yii\Helpers\Url;
 use ZnLib\Web\Symfony4\MicroApp\BaseWebCrudController;
 use ZnLib\Web\Symfony4\MicroApp\Interfaces\ControllerAccessInterface;
 use ZnLib\Web\Widgets\BreadcrumbWidget;
-use ZnSandbox\Sandbox\Casbin\Domain\Enums\Rbac\ExtraPermissionEnum;
 
 class AttributeController extends BaseWebCrudController implements ControllerAccessInterface
 {

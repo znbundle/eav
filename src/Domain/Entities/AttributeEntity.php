@@ -43,6 +43,8 @@ class AttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInte
 
     private $unit;
 
+    private $tie;
+
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         //$metadata->addPropertyConstraint('id', new Assert\NotBlank);
@@ -211,4 +213,15 @@ class AttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInte
     {
         $this->unit = $unit;
     }
+
+    public function getTie(): ?EntityAttributeEntity
+    {
+        return $this->tie;
+    }
+
+    public function setTie(EntityAttributeEntity $tie): void
+    {
+        $this->tie = $tie;
+    }
+
 }

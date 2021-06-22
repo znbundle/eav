@@ -75,7 +75,7 @@ $attributes = [
         <div class="mb-3">
             <h3>Attributes</h3>
             <?= $this->renderFile(__DIR__ . '/attribute/index.php', [
-                'collection' => $entity->getAttributes(),
+                'collection' => $entity->getAttributesTie(),
                 'baseUri' => '/eav/attribute',
             ]); ?>
         </div>

@@ -96,10 +96,16 @@ $attributes = [
 
         <div class="mb-3">
             <h3>Enums</h3>
-            <?= $this->renderFile(__DIR__ . '/enum/index.php', [
-                'collection' => $entity->getEnums(),
-                'baseUri' => '/eav/enum',
-            ]); ?>
+            <?php if($entity->getType() == AttributeTypeEnum::ENUM): ?>
+                <?= $this->renderFile(__DIR__ . '/enum/index.php', [
+                    'collection' => $entity->getEnums(),
+                    'baseUri' => '/eav/enum',
+                ]); ?>
+            <?php else: ?>
+                <div class="alert alert-secondary" role="alert">
+                    Type is not enum
+                </div>
+            <?php endif; ?>
         </div>
 
     </div>
