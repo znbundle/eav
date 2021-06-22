@@ -110,6 +110,8 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
                 ]);
             } elseif($attributeEntity->getIsRequired()) {
                 $rules[$attributeName][] = new Assert\NotBlank;
+            } elseif(!$attributeEntity->getIsRequired()) {
+                $rules[$attributeName][] = new Assert\Length(['min' => 0]);
             }
             /*if ($attributeEntity->getIsRequired() && !$isBoolean) {
                 $rules[$attributeName][] = new Assert\NotBlank;
