@@ -3,6 +3,7 @@
 namespace ZnBundle\Eav\Domain\Entities;
 
 use InvalidArgumentException;
+use ZnBundle\Eav\Domain\Libs\Rules;
 use ZnBundle\Eav\Domain\Traits\DynamicAttribute;
 use ZnCore\Domain\Interfaces\Entity\EntityAttributesInterface;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
@@ -22,7 +23,8 @@ class DynamicEntity implements ValidateEntityInterface, EntityIdInterface, Entit
         if ($entityEntity) {
             $this->_attributes = $entityEntity->getAttributeNames();
             $this->_entity = $entityEntity;
-            $this->_validationRules = $entityEntity->getRules();
+            $rulesLib = new Rules();
+            $this->_validationRules = $rulesLib->convert($entityEntity->getAttributes());
         }
         if (empty($this->_attributes)) {
             throw new InvalidArgumentException('No attributes for dynamic entity!');

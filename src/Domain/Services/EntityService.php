@@ -74,17 +74,23 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         return new DynamicForm($entityEntity);
     }
 
+    public function validateEntity(DynamicEntity $dynamicEntity): void
+    {
+        $this->validate($dynamicEntity->entityId(), $dynamicEntity->toArray());
+    }
+
     public function updateEntity(DynamicEntity $dynamicEntity): void
     {
-        $recordId = $dynamicEntity->getId();
-        $this->validate($dynamicEntity->entityId(), $dynamicEntity->toArray());
+//        $recordId = $dynamicEntity->getId();
+//        $this->validate($dynamicEntity->entityId(), $dynamicEntity->toArray());
+        $this->validateEntity($dynamicEntity);
         $entityEntity = $this->oneByIdWithRelations($dynamicEntity->entityId());
         /** @var ValueServiceInterface $valueService */
         $valueService = ContainerHelper::getContainer()->get(ValueServiceInterface::class);
         foreach ($entityEntity->getAttributes() as $attributeEntity) {
             $name = $attributeEntity->getName();
             $value = EntityHelper::getValue($dynamicEntity, $name);
-            $valueService->persistValue($attributeEntity, $dynamicEntity->entityId(), $recordId, $value);
+            $valueService->persistValue($attributeEntity, $dynamicEntity->entityId(), $dynamicEntity->getId(), $value);
         }
     }
 
@@ -97,7 +103,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         $data = $normalizer->normalizeData($data, $entityEntity);
         EntityHelper::setAttributes($dynamicEntity, $data);
         $validator = new Validator();
-        $validator->validate($data, $entityEntity->getRules());
+        $validator->validate($data, $dynamicEntity->validationRules());
         return $dynamicEntity;
     }
 

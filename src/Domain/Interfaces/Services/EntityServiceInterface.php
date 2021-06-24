@@ -17,6 +17,8 @@ interface EntityServiceInterface extends CrudServiceInterface
 
     public function oneByName(string $name, Query $query = null): EntityEntity;
 
+    public function validateEntity(DynamicEntity $dynamicEntity): void;
+
     public function updateEntity(DynamicEntity $dynamicEntity): void;
 
     public function createEntityById(int $id): DynamicEntity;

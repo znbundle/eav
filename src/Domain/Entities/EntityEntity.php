@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Entities;
 
+use Illuminate\Container\Container;
 use Illuminate\Support\Collection;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -9,7 +10,9 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
+use ZnBundle\Eav\Domain\Libs\Rules;
 use ZnCore\Base\Enums\StatusEnum;
+use ZnCore\Base\Helpers\ClassHelper;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
@@ -85,39 +88,8 @@ class EntityEntity implements ValidateEntityByMetadataInterface, EntityIdInterfa
         if (empty($attributesCollection)) {
             return null;
         }
-        $rules = [];
-        /** @var AttributeEntity $attributeEntity */
-        foreach ($attributesCollection as $attributeEntity) {
-            $attributeName = $attributeEntity->getName();
-            foreach ($attributeEntity->getRules() as $ruleEntity) {
-                $ruleName = $ruleEntity->getName();
-                $isClassName = strpos($ruleName, '\\') !== false;
-                $ruleClassName = $isClassName ? $ruleName : 'Symfony\Component\Validator\Constraints\\' . ucfirst($ruleName);
-                if ($ruleClassName) {
-                    $rules[$attributeName][] = new $ruleClassName;
-                }
-            }
-            $enumCollection = $attributeEntity->getEnums();
-            if ($enumCollection && $enumCollection->count() > 0) {
-                $rules[$attributeName][] = new Assert\Choice([
-                    'choices' => EntityHelper::getColumn($enumCollection, 'name'),
-                ]);
-            }
-            $isBoolean = $attributeEntity->getType() == 'boolean' || $attributeEntity->getType() == 'bool';
-            if($isBoolean) {
-                $rules[$attributeName][] = new Assert\Choice([
-                    'choices' => [true, false],
-                ]);
-            } elseif($attributeEntity->getIsRequired()) {
-                $rules[$attributeName][] = new Assert\NotBlank;
-            } elseif(!$attributeEntity->getIsRequired()) {
-                $rules[$attributeName][] = new Assert\Length(['min' => 0]);
-            }
-            /*if ($attributeEntity->getIsRequired() && !$isBoolean) {
-                $rules[$attributeName][] = new Assert\NotBlank;
-            }*/
-        }
-        return $rules;
+        $rulesLib = new Rules();
+        return $rulesLib->convert($attributesCollection);
     }
 
     public function setId($value): void
