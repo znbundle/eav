@@ -41,7 +41,7 @@ class EavValidateTest extends BaseRestApiTest
         $this->assertEquals($body, EntityHelper::toArray($entity));
     }
 
-    public function testValidateEntityNgative()
+    public function testValidateEntityNegative()
     {
         $body = [
             'season' => 'summer111',

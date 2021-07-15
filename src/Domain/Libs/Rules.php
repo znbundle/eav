@@ -6,6 +6,8 @@ use Illuminate\Support\Collection;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints as Assert;
 use ZnBundle\Eav\Domain\Entities\AttributeEntity;
+use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
+use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnCore\Domain\Helpers\EntityHelper;
 
 class Rules
