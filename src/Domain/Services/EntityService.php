@@ -71,6 +71,11 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
     public function createFormById(int $id): DynamicForm
     {
         $entityEntity = $this->oneByIdWithRelations($id);
+        return $this->createFormByEntity($entityEntity);
+    }
+
+    public function createFormByEntity(EntityEntity $entityEntity): DynamicForm
+    {
         return new DynamicForm($entityEntity);
     }
 
