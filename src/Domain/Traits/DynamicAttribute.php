@@ -13,6 +13,7 @@ trait DynamicAttribute
 
     public function __set(string $attribute, $value)
     {
+        //dd($attribute, $value);
         $attribute = Inflector::variablize($attribute);
         $this->checkHasAttribute($attribute);
         $this->{$attribute} = $value;
@@ -20,13 +21,16 @@ trait DynamicAttribute
 
     public function __get(string $attribute)
     {
+
         $attribute = Inflector::variablize($attribute);
         $this->checkHasAttribute($attribute);
+        //dd($attribute);
         return $this->{$attribute} ?? null;
     }
 
     public function __call(string $name, array $arguments)
     {
+        //dd($name, $arguments);
         $method = substr($name, 0, 3);
         $attributeName = substr($name, 3);
         $attributeName = lcfirst($attributeName);
@@ -49,6 +53,8 @@ trait DynamicAttribute
 
     protected function checkHasAttribute(string $attribute)
     {
+        return;
+
         if (empty($this->_attributes)) {
             throw new InvalidArgumentException('No attributes for dynamic entity!');
         }
