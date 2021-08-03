@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Entities;
 
-use App\Rpc\Domain\Enums\RpcCryptoProviderStrategyEnum;
+use ZnSandbox\Sandbox\Rpc\Domain\Enums\RpcCryptoProviderStrategyEnum;
 use Illuminate\Support\Collection;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
