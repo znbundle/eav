@@ -25,5 +25,3 @@ use ZnLib\Web\View\View;
 </div>
 
 <?= $formRender->endFrom() ?>
-
-<a href="/restore-password"><?= I18Next::t('user', 'restore-password.request_action') ?></a>

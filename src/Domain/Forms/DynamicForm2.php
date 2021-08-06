@@ -26,8 +26,6 @@ class DynamicForm2 extends DynamicEntity implements BuildFormInterface, ToArrayI
     {
         /** @var AttributeEntity[] | Collection $attributesCollection */
         $attributesCollection = $this->entity()->getAttributes();
-
-        //dd($attributesCollection->first()->getType());
         foreach ($attributesCollection as $attributeEntity) {
             $typeInfo = $this->convertType($attributeEntity->getType());
             $attributeOptions = [
