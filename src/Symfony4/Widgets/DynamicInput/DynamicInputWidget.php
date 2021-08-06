@@ -1,6 +1,6 @@
 <?php
 
-namespace ZnBundle\Eav\Symfony4\Widgets\DynamicInputWidget;
+namespace ZnBundle\Eav\Symfony4\Widgets\DynamicInput;
 
 use Symfony\Component\Form\FormView;
 use ZnLib\Web\Symfony4\MicroApp\Libs\FormRender;
