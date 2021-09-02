@@ -23,17 +23,10 @@ class m_2020_08_31_115030_create_eav_attribute_table extends BaseCreateTableMigr
             $table->string('title')->comment('Название');
             $table->string('description')->nullable()->comment('Описание');
             $table->integer('unit_id')->nullable()->comment('Единица измерения');
+            $table->integer('book_id')->nullable()->comment('Справочник (для типа enum)');
             $table->integer('status')->default(1)->comment('Статус');
 
             $this->addForeign($table, 'unit_id', 'eav_measure');
-
-            /*$table
-                ->foreign('unit_id')
-                ->references('id')
-                ->on($this->encodeTableName('eav_measure'))
-                ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);*/
         };
     }
-
 }
