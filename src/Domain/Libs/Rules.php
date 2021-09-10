@@ -8,6 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use ZnBundle\Eav\Domain\Entities\AttributeEntity;
 use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
+use ZnCore\Domain\Constraints\Boolean;
 use ZnCore\Domain\Helpers\EntityHelper;
 
 class Rules
@@ -68,9 +69,7 @@ class Rules
     {
         $isBoolean = $attributeEntity->getType() == 'boolean' || $attributeEntity->getType() == 'bool';
         if ($isBoolean) {
-            $choiceConstraint = new Assert\Choice([
-                'choices' => [true, false],
-            ]);
+            $choiceConstraint = new Boolean();
             $this->addRule($attributeName, $choiceConstraint);
         }
     }
