@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Entities;
 
+use ZnCore\Domain\Constraints\Enum;
 use ZnSandbox\Sandbox\Rpc\Domain\Enums\RpcCryptoProviderStrategyEnum;
 use Illuminate\Support\Collection;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -50,8 +51,8 @@ class AttributeEntity implements ValidateEntityByMetadataInterface, EntityIdInte
         //$metadata->addPropertyConstraint('id', new Assert\NotBlank);
 //        $metadata->addPropertyConstraint('name', new Assert\NotBlank);
         $metadata->addPropertyConstraint('type', new Assert\NotBlank);
-        $metadata->addPropertyConstraint('type', new Assert\Choice([
-            'choices' => EnumHelper::getValues(AttributeTypeEnum::class),
+        $metadata->addPropertyConstraint('type', new Enum([
+            'class' => AttributeTypeEnum::class,
         ]));
         //$metadata->addPropertyConstraint('default', new Assert\NotBlank);
         $metadata->addPropertyConstraint('title', new Assert\NotBlank);
