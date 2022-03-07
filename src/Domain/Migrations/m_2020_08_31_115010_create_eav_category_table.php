@@ -3,7 +3,7 @@
 namespace Migrations;
 
 use Illuminate\Database\Schema\Blueprint;
-use ZnLib\Migration\Domain\Base\BaseCreateTableMigration;
+use ZnDatabase\Migration\Domain\Base\BaseCreateTableMigration;
 
 class m_2020_08_31_115010_create_eav_category_table extends BaseCreateTableMigration
 {

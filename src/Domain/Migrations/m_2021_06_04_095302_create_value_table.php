@@ -3,7 +3,7 @@
 namespace Migrations;
 
 use Illuminate\Database\Schema\Blueprint;
-use ZnLib\Migration\Domain\Base\BaseCreateTableMigration;
+use ZnDatabase\Migration\Domain\Base\BaseCreateTableMigration;
 
 class m_2021_06_04_095302_create_value_table extends BaseCreateTableMigration
 {
