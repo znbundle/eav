@@ -10,7 +10,7 @@ use ZnBundle\Eav\Domain\Interfaces\Repositories\ValidationRepositoryInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class AttributeRepository extends BaseEloquentCrudRepository implements AttributeRepositoryInterface
 {

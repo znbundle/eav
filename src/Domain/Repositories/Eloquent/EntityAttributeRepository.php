@@ -7,7 +7,7 @@ use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityAttributeRepositoryInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class EntityAttributeRepository extends BaseEloquentCrudRepository implements EntityAttributeRepositoryInterface
 {

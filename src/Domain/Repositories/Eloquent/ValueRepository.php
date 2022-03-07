@@ -9,7 +9,7 @@ use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\ValueRepositoryInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class ValueRepository extends BaseEloquentCrudRepository implements ValueRepositoryInterface
 {

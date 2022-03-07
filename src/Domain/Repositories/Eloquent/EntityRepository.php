@@ -12,7 +12,7 @@ use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
 use ZnCore\Domain\Libs\Query;
 use ZnCore\Domain\Relations\relations\OneToManyRelation;
 use ZnCore\Domain\Relations\relations\OneToOneRelation;
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class EntityRepository extends BaseEloquentCrudRepository implements EntityRepositoryInterface
 {

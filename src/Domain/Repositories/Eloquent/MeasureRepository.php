@@ -4,7 +4,7 @@ namespace ZnBundle\Eav\Domain\Repositories\Eloquent;
 
 use ZnBundle\Eav\Domain\Entities\MeasureEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\MeasureRepositoryInterface;
-use ZnLib\Db\Base\BaseEloquentCrudRepository;
+use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class MeasureRepository extends BaseEloquentCrudRepository implements MeasureRepositoryInterface
 {
