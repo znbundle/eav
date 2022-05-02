@@ -6,7 +6,7 @@ use InvalidArgumentException;
 use ZnBundle\Eav\Domain\Libs\Rules;
 use ZnBundle\Eav\Domain\Traits\DynamicAttribute;
 use ZnCore\Domain\Interfaces\Entity\EntityAttributesInterface;
-use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
 use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
 
 class DynamicEntity implements ValidateEntityInterface, EntityIdInterface, EntityAttributesInterface

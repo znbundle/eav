@@ -9,7 +9,7 @@
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnCore\Base\Enums\StatusEnum;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
-use ZnCore\Domain\Interfaces\Entity\EntityIdInterface;
+use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
 use ZnLib\Web\Symfony4\MicroApp\Helpers\ActionHelper;
 use ZnLib\Web\View\View;
 use ZnLib\Web\Widgets\Detail\DetailWidget;
