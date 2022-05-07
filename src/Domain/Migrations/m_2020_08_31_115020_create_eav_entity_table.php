@@ -23,14 +23,6 @@ class m_2020_08_31_115020_create_eav_entity_table extends BaseCreateTableMigrati
             $table->integer('status')->default(1)->comment('Статус');
 
             $this->addForeign($table, 'category_id', 'eav_category');
-
-            /*$table
-                ->foreign('category_id')
-                ->references('id')
-                ->on($this->encodeTableName('eav_category'))
-                ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);*/
-
         };
     }
 

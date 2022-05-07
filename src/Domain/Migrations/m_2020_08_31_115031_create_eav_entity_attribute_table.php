@@ -28,19 +28,6 @@ class m_2020_08_31_115031_create_eav_entity_attribute_table extends BaseCreateTa
 
             $this->addForeign($table, 'entity_id', 'eav_entity');
             $this->addForeign($table, 'attribute_id', 'eav_attribute');
-
-            /*$table
-                ->foreign('entity_id')
-                ->references('id')
-                ->on($this->encodeTableName('eav_entity'))
-                ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);
-            $table
-                ->foreign('attribute_id')
-                ->references('id')
-                ->on($this->encodeTableName('eav_attribute'))
-                ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);*/
         };
     }
 

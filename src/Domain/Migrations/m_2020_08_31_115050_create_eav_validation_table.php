@@ -23,13 +23,6 @@ class m_2020_08_31_115050_create_eav_validation_table extends BaseCreateTableMig
             $table->integer('status')->default(1)->comment('Статус');
 
             $this->addForeign($table, 'attribute_id', 'eav_attribute');
-
-            /*$table
-                ->foreign('attribute_id')
-                ->references('id')
-                ->on($this->encodeTableName('eav_attribute'))
-                ->onDelete(ForeignActionEnum::CASCADE)
-                ->onUpdate(ForeignActionEnum::CASCADE);*/
         };
     }
 
