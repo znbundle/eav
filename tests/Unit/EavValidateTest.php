@@ -3,7 +3,7 @@
 namespace ZnBundle\Eav\Tests\Unit;
 
 use ZnBundle\Eav\Domain\Services\EntityService;
-use ZnCore\Base\Libs\App\Helpers\ContainerHelper;
+use ZnCore\Base\Libs\Container\Helpers\ContainerHelper;
 use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Helpers\EntityHelper;
 use ZnTool\Test\Base\BaseRestApiTest;
