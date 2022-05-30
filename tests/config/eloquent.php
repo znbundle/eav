@@ -6,7 +6,7 @@ return [
             'default' => '/vendor/znbundle/eav/tests/fixtures',
         ],
     ],
-    'migrate' => [
+    /*'migrate' => [
         'directory' => $_ENV['ELOQUENT_MIGRATIONS'] ?? [],
-    ],
+    ],*/
 ];
