@@ -16,23 +16,18 @@ use ZnBundle\Eav\Domain\Libs\Rules;
 use ZnBundle\Eav\Domain\Traits\DynamicAttribute;
 use ZnCore\Base\Exceptions\InvalidArgumentException;
 use ZnCore\Base\Legacy\Yii\Helpers\ArrayHelper;
+use ZnCore\Base\Libs\DynamicEntity\Interfaces\ValidateDynamicEntityInterface;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Contract\Arr\Interfaces\ToArrayInterface;
-use ZnCore\Domain\Interfaces\Entity\ValidateEntityInterface;
 use ZnLib\Web\Symfony4\MicroApp\Interfaces\BuildFormInterface;
 
-class DynamicForm implements BuildFormInterface, ToArrayInterface, ValidateEntityInterface
+class DynamicForm implements BuildFormInterface, ToArrayInterface, ValidateDynamicEntityInterface
 {
 
     use DynamicAttribute;
 
     protected $_entityEntity;
     protected $_validationRules = [];
-
-    /*public function getAttributes(): array
-    {
-        return $this->attributes();
-    }*/
 
     public function __construct(EntityEntity $entityEntity)
     {
@@ -46,11 +41,9 @@ class DynamicForm implements BuildFormInterface, ToArrayInterface, ValidateEntit
         if (empty($this->_attributes)) {
             throw new InvalidArgumentException('No attributes for dynamic entity!');
         }
-        //dd($this->attributes());
         foreach ($this->attributes() as $attributeName) {
             $this->{$attributeName} = null;
         }
-        //dd($this);
     }
 
     public function validationRules(): array
@@ -107,7 +100,7 @@ class DynamicForm implements BuildFormInterface, ToArrayInterface, ValidateEntit
 
     private function enumsToChoices(?Collection $enumCollection): array
     {
-        if(empty($enumCollection)) {
+        if (empty($enumCollection)) {
             return [];
         }
         $options = [];
