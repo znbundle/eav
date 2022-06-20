@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
 use ZnCore\Base\Enums\StatusEnum;
-use ZnCore\Base\Helpers\EnumHelper;
+use ZnCore\Base\Libs\Enum\Helpers\EnumHelper;
 use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
 use ZnCore\Base\Libs\Validation\Interfaces\ValidationByMetadataInterface;
 use ZnLib\Web\Symfony4\MicroApp\Interfaces\BuildFormInterface;

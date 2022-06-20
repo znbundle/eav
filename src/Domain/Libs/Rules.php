@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use ZnBundle\Eav\Domain\Entities\AttributeEntity;
 use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
-use ZnCore\Domain\Constraints\Boolean;
+use ZnCore\Base\Libs\Constraints\Boolean;
 use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 
 class Rules

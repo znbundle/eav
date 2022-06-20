@@ -4,7 +4,7 @@ namespace ZnBundle\Eav\Domain\Services;
 
 use ZnBundle\Eav\Domain\Interfaces\Repositories\MeasureRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\MeasureServiceInterface;
-use ZnCore\Domain\Base\BaseCrudService;
+use ZnCore\Base\Libs\Service\Base\BaseCrudService;
 
 class MeasureService extends BaseCrudService implements MeasureServiceInterface
 {

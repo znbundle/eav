@@ -4,7 +4,7 @@ namespace ZnBundle\Eav\Domain\Services;
 
 use ZnBundle\Eav\Domain\Interfaces\Repositories\ValidationRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\ValidationServiceInterface;
-use ZnCore\Domain\Base\BaseCrudService;
+use ZnCore\Base\Libs\Service\Base\BaseCrudService;
 
 class ValidationService extends BaseCrudService implements ValidationServiceInterface
 {
