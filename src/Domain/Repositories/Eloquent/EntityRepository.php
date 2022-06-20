@@ -10,8 +10,8 @@ use ZnBundle\Eav\Domain\Interfaces\Repositories\CategoryRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityAttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
 use ZnCore\Base\Libs\Query\Entities\Query;
-use ZnCore\Domain\Relations\relations\OneToManyRelation;
-use ZnCore\Domain\Relations\relations\OneToOneRelation;
+use ZnCore\Base\Libs\Relation\Libs\Types\OneToManyRelation;
+use ZnCore\Base\Libs\Relation\Libs\Types\OneToOneRelation;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class EntityRepository extends BaseEloquentCrudRepository implements EntityRepositoryInterface
