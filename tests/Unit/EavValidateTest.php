@@ -4,6 +4,7 @@ namespace ZnBundle\Eav\Tests\Unit;
 
 use ZnBundle\Eav\Domain\Services\EntityService;
 use ZnCore\Base\Libs\Container\Helpers\ContainerHelper;
+use ZnCore\Base\Libs\Entity\Helpers\CollectionHelper;
 use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
 use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 use ZnTool\Test\Base\BaseRestApiTest;
@@ -57,7 +58,7 @@ class EavValidateTest extends BaseRestApiTest
                     "message" => "Выбранное Вами значение недопустимо.",
                 ],
             ];
-            $this->assertArraySubset($expect, EntityHelper::collectionToArray($e->getErrorCollection()));
+            $this->assertArraySubset($expect, CollectionHelper::toArray($e->getErrorCollection()));
         }
     }
 

@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnBundle\Eav\Domain\Libs\Rules;
 use ZnCore\Base\Enums\StatusEnum;
 use ZnCore\Base\Helpers\ClassHelper;
+use ZnCore\Base\Libs\Entity\Helpers\CollectionHelper;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
@@ -74,7 +75,7 @@ class EntityEntity implements ValidationByMetadataInterface, EntityIdInterface, 
     {
         $attributes = $this->getAttributes();
         if ($attributes) {
-            return EntityHelper::getColumn($attributes, 'name');
+            return CollectionHelper::getColumn($attributes, 'name');
         }
         return null;
     }

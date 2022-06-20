@@ -9,6 +9,7 @@ use ZnBundle\Eav\Domain\Entities\AttributeEntity;
 use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnCore\Base\Libs\Constraints\Boolean;
+use ZnCore\Base\Libs\Entity\Helpers\CollectionHelper;
 use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 
 class Rules
@@ -59,7 +60,7 @@ class Rules
         $enumCollection = $attributeEntity->getEnums();
         if ($enumCollection && $enumCollection->count() > 0) {
             $choiceConstraint = new Assert\Choice([
-                'choices' => EntityHelper::getColumn($enumCollection, 'name'),
+                'choices' => CollectionHelper::getColumn($enumCollection, 'name'),
             ]);
             $this->addRule($attributeName, $choiceConstraint);
         }
