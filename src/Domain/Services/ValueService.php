@@ -14,7 +14,7 @@ use ZnCore\Base\Libs\EntityManager\Interfaces\EntityManagerInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\ValueRepositoryInterface;
 use ZnCore\Domain\Base\BaseCrudService;
 use ZnBundle\Eav\Domain\Entities\ValueEntity;
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Entities\Query;
 
 /**
  * @method ValueRepositoryInterface getRepository()

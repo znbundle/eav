@@ -4,7 +4,7 @@ namespace ZnBundle\Eav\Domain\Interfaces\Repositories;
 
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnCore\Domain\Interfaces\Repository\CrudRepositoryInterface;
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Entities\Query;
 
 interface EntityRepositoryInterface extends CrudRepositoryInterface
 {

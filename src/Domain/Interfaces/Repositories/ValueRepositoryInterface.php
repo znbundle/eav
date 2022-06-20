@@ -5,7 +5,7 @@ namespace ZnBundle\Eav\Domain\Interfaces\Repositories;
 use Illuminate\Support\Collection;
 use ZnBundle\Eav\Domain\Entities\ValueEntity;
 use ZnCore\Domain\Interfaces\Repository\CrudRepositoryInterface;
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Entities\Query;
 
 interface ValueRepositoryInterface extends CrudRepositoryInterface
 {

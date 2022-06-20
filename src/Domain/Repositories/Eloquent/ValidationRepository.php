@@ -4,7 +4,7 @@ namespace ZnBundle\Eav\Domain\Repositories\Eloquent;
 
 use ZnBundle\Eav\Domain\Entities\ValidationEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\ValidationRepositoryInterface;
-use ZnCore\Domain\Libs\Query;
+use ZnCore\Base\Libs\Query\Entities\Query;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class ValidationRepository extends BaseEloquentCrudRepository implements ValidationRepositoryInterface
