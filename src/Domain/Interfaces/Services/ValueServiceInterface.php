@@ -5,7 +5,7 @@ namespace ZnBundle\Eav\Domain\Interfaces\Services;
 use ZnBundle\Eav\Domain\Entities\AttributeEntity;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnCore\Base\Exceptions\NotFoundException;
-use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
+use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Interfaces\Service\CrudServiceInterface;
 
 interface ValueServiceInterface extends CrudServiceInterface

@@ -4,8 +4,8 @@ namespace ZnBundle\Eav\Tests\Unit;
 
 use ZnBundle\Eav\Domain\Services\EntityService;
 use ZnCore\Base\Libs\Container\Helpers\ContainerHelper;
-use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
-use ZnCore\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
+use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 use ZnTool\Test\Base\BaseRestApiTest;
 
 include __DIR__ . '/../bootstrap.php';

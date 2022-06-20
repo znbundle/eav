@@ -6,9 +6,9 @@ use Illuminate\Support\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
-use ZnCore\Domain\Entities\ValidateErrorEntity;
-use ZnCore\Domain\Exceptions\UnprocessibleEntityException;
-use ZnCore\Domain\Helpers\SymfonyValidationHelper;
+use ZnCore\Base\Libs\Validation\Entities\ValidationErrorEntity;
+use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
+use ZnCore\Base\Libs\Validation\Helpers\SymfonyValidationHelper;
 
 class Validator
 {
@@ -45,7 +45,7 @@ class Validator
         foreach ($violations as $violation) {
             //$name = trim($violation->getPropertyPath(), '[]');
             $name = $violation->getPropertyPath();
-            $entity = new ValidateErrorEntity;
+            $entity = new ValidationErrorEntity;
             $entity->setField($name);
             $entity->setMessage($violation->getMessage());
             $entity->setViolation($violation);

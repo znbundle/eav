@@ -6,9 +6,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Base\Enums\StatusEnum;
 use ZnCore\Contract\Domain\Interfaces\Entities\EntityIdInterface;
-use ZnCore\Base\Libs\Entity\Interfaces\ValidateEntityByMetadataInterface;
+use ZnCore\Base\Libs\Validation\Interfaces\ValidationByMetadataInterface;
 
-class EnumEntity implements ValidateEntityByMetadataInterface, EntityIdInterface
+class EnumEntity implements ValidationByMetadataInterface, EntityIdInterface
 {
 
     private $id = null;

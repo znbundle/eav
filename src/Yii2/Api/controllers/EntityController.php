@@ -5,7 +5,7 @@ namespace ZnBundle\Eav\Yii2\Api\controllers;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
 use Yii;
 use yii\base\Module;
-use ZnCore\Domain\Helpers\EntityHelper;
+use ZnCore\Base\Libs\Entity\Helpers\EntityHelper;
 use ZnLib\Rest\Yii2\Base\BaseCrudController;
 
 class EntityController extends BaseCrudController
