@@ -20,9 +20,8 @@ class ValidationRepository extends BaseEloquentCrudRepository implements Validat
         return ValidationEntity::class;
     }
 
-    protected function forgeQuery(Query $query = null)
+    protected function forgeQuery(Query $query = null): Query
     {
         return parent::forgeQuery($query)->orderBy(['sort' => SORT_ASC]);
     }
 }
-

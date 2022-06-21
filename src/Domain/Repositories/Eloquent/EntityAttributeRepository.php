@@ -22,7 +22,7 @@ class EntityAttributeRepository extends BaseEloquentCrudRepository implements En
         return EntityAttributeEntity::class;
     }
 
-    protected function forgeQuery(Query $query = null)
+    protected function forgeQuery(Query $query = null): Query
     {
         return parent::forgeQuery($query)->orderBy(['sort' => SORT_ASC]);
     }

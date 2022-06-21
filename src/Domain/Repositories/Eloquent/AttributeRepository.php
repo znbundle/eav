@@ -51,7 +51,7 @@ class AttributeRepository extends BaseEloquentCrudRepository implements Attribut
         ];
     }
 
-    protected function forgeQuery(Query $query = null)
+    protected function forgeQuery(Query $query = null): Query
     {
         return parent::forgeQuery($query)
             ->with(['rules', 'enums', 'unit']);
