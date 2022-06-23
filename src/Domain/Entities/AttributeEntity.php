@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Entities;
 
-use ZnCore\Base\Libs\Enum\Constraints\Enum;
+use ZnCore\Base\Enum\Constraints\Enum;
 use Illuminate\Support\Collection;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -10,10 +10,10 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
-use ZnCore\Base\Libs\Status\Enums\StatusEnum;
-use ZnCore\Base\Libs\Enum\Helpers\EnumHelper;
+use ZnCore\Base\Status\Enums\StatusEnum;
+use ZnCore\Base\Enum\Helpers\EnumHelper;
 use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
-use ZnCore\Base\Libs\Validation\Interfaces\ValidationByMetadataInterface;
+use ZnCore\Base\Validation\Interfaces\ValidationByMetadataInterface;
 use ZnLib\Web\Symfony4\MicroApp\Interfaces\BuildFormInterface;
 
 class AttributeEntity implements ValidationByMetadataInterface, EntityIdInterface, BuildFormInterface

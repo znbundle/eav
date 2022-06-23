@@ -2,7 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Enums;
 
-use ZnCore\Base\Libs\Enum\Interfaces\GetLabelsInterface;
+use ZnCore\Base\Enum\Interfaces\GetLabelsInterface;
 
 class AttributeTypeEnum implements GetLabelsInterface
 {

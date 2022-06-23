@@ -6,9 +6,9 @@ use Illuminate\Support\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
-use ZnCore\Base\Libs\Validation\Entities\ValidationErrorEntity;
-use ZnCore\Base\Libs\Validation\Exceptions\UnprocessibleEntityException;
-use ZnCore\Base\Libs\Validation\Helpers\SymfonyValidationHelper;
+use ZnCore\Base\Validation\Entities\ValidationErrorEntity;
+use ZnCore\Base\Validation\Exceptions\UnprocessibleEntityException;
+use ZnCore\Base\Validation\Helpers\SymfonyValidationHelper;
 
 class Validator
 {

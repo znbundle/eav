@@ -15,9 +15,9 @@ use ZnBundle\Eav\Domain\Entities\EnumEntity;
 use ZnBundle\Eav\Domain\Libs\Rules;
 use ZnBundle\Eav\Domain\Traits\DynamicAttribute;
 use ZnCore\Contract\Common\Exceptions\InvalidArgumentException;
-use ZnCore\Base\Libs\Arr\Helpers\ArrayHelper;
-use ZnCore\Base\Libs\DynamicEntity\Interfaces\ValidateDynamicEntityInterface;
-use ZnCore\Base\Libs\I18Next\Facades\I18Next;
+use ZnCore\Base\Arr\Helpers\ArrayHelper;
+use ZnCore\Base\DynamicEntity\Interfaces\ValidateDynamicEntityInterface;
+use ZnCore\Base\I18Next\Facades\I18Next;
 use ZnCore\Contract\Arr\Interfaces\ToArrayInterface;
 use ZnLib\Web\Symfony4\MicroApp\Interfaces\BuildFormInterface;
 
