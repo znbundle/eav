@@ -12,7 +12,7 @@ use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\ValueServiceInterface;
 use ZnBundle\Eav\Domain\Libs\TypeNormalizer;
 use ZnBundle\Eav\Domain\Libs\Validator;
-use ZnCore\Base\Exceptions\NotFoundException;
+use ZnCore\Domain\Entity\Exceptions\NotFoundException;
 use ZnCore\Base\Libs\Container\Helpers\ContainerHelper;
 use ZnCore\Domain\Service\Base\BaseCrudService;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;

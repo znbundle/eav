@@ -8,7 +8,7 @@
 
 use ZnBundle\Eav\Domain\Entities\AttributeEntity;
 use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
-use ZnCore\Base\Enums\StatusEnum;
+use ZnCore\Base\Libs\Status\Enums\StatusEnum;
 use ZnCore\Base\Libs\I18Next\Facades\I18Next;
 use ZnLib\Web\Symfony4\MicroApp\Helpers\ActionHelper;
 use ZnLib\Web\View\View;
