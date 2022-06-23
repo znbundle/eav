@@ -4,7 +4,7 @@ namespace ZnBundle\Eav\Domain\Traits;
 
 use Exception;
 use InvalidArgumentException;
-use ZnCore\Base\Legacy\Yii\Helpers\Inflector;
+use ZnCore\Base\Libs\Text\Helpers\Inflector;
 
 trait DynamicAttribute
 {
