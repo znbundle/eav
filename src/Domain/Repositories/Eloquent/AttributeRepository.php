@@ -25,7 +25,7 @@ class AttributeRepository extends BaseEloquentCrudRepository implements Attribut
         return AttributeEntity::class;
     }
 
-    public function relations2()
+    public function relations()
     {
         return [
             [

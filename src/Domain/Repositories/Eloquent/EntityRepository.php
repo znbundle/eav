@@ -40,7 +40,7 @@ class EntityRepository extends BaseEloquentCrudRepository implements EntityRepos
         return $this->one($query);
     }
 
-    public function relations2()
+    public function relations()
     {
         return [
             [

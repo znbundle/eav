@@ -27,7 +27,7 @@ class EntityAttributeRepository extends BaseEloquentCrudRepository implements En
         return parent::forgeQuery($query)->orderBy(['sort' => SORT_ASC]);
     }
 
-    public function relations2()
+    public function relations()
     {
         return [
             [
