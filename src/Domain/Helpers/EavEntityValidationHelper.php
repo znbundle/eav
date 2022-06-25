@@ -5,7 +5,7 @@ namespace ZnBundle\Eav\Domain\Helpers;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnBundle\Eav\Domain\Libs\TypeNormalizer;
 use ZnBundle\Eav\Domain\Libs\Validator;
-use ZnCore\Base\DynamicEntity\Interfaces\ValidateDynamicEntityInterface;
+use ZnLib\Components\DynamicEntity\Interfaces\ValidateDynamicEntityInterface;
 
 class EavEntityValidationHelper
 {

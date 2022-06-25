@@ -11,7 +11,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormView;
 use ZnBundle\Eav\Domain\Entities\ValidationEntity;
 use ZnLib\Web\Helpers\Url;
-use ZnCore\Base\I18Next\Facades\I18Next;
+use ZnLib\Components\I18Next\Facades\I18Next;
 use ZnLib\Web\Widgets\Collection\CollectionWidget;
 use ZnLib\Web\Widgets\Format\Formatters\ActionFormatter;
 use ZnLib\Web\Widgets\Format\Formatters\LinkFormatter;
