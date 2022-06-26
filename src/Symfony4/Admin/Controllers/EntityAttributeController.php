@@ -9,13 +9,13 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityAttributeServiceInterface;
 use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
-use ZnLib\Web\Components\Url\Helpers\Url;
+use ZnLib\Web\Url\Helpers\Url;
 use ZnCore\Base\Validation\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
-use ZnLib\Web\Components\Controller\BaseWebCrudController;
-use ZnLib\Web\Components\Form\Interfaces\BuildFormInterface;
-use ZnLib\Web\Components\Controller\Interfaces\ControllerAccessInterface;
-use ZnLib\Web\Components\TwBootstrap\Widgets\Breadcrumb\BreadcrumbWidget;
+use ZnLib\Web\Controller\Base\BaseWebCrudController;
+use ZnLib\Web\Form\Interfaces\BuildFormInterface;
+use ZnLib\Web\Controller\Interfaces\ControllerAccessInterface;
+use ZnLib\Web\TwBootstrap\Widgets\Breadcrumb\BreadcrumbWidget;
 
 class EntityAttributeController extends BaseWebCrudController implements ControllerAccessInterface
 {

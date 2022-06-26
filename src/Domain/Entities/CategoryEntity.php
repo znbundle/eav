@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
 use ZnCore\Base\Validation\Interfaces\ValidationByMetadataInterface;
-use ZnLib\Web\Components\Form\Interfaces\BuildFormInterface;
+use ZnLib\Web\Form\Interfaces\BuildFormInterface;
 
 class CategoryEntity implements ValidationByMetadataInterface, EntityIdInterface, BuildFormInterface
 {

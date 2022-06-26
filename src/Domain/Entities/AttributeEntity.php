@@ -14,7 +14,7 @@ use ZnLib\Components\Status\Enums\StatusEnum;
 use ZnCore\Base\Enum\Helpers\EnumHelper;
 use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
 use ZnCore\Base\Validation\Interfaces\ValidationByMetadataInterface;
-use ZnLib\Web\Components\Form\Interfaces\BuildFormInterface;
+use ZnLib\Web\Form\Interfaces\BuildFormInterface;
 
 class AttributeEntity implements ValidationByMetadataInterface, EntityIdInterface, BuildFormInterface
 {

@@ -5,7 +5,7 @@ use ZnBundle\Eav\Symfony4\Admin\Controllers\AttributeController;
 use ZnBundle\Eav\Symfony4\Admin\Controllers\CategoryController;
 use ZnBundle\Eav\Symfony4\Admin\Controllers\EntityAttributeController;
 use ZnBundle\Eav\Symfony4\Admin\Controllers\EntityController;
-use ZnLib\Web\Components\Controller\Helpers\RouteHelper;
+use ZnLib\Web\Controller\Helpers\RouteHelper;
 
 return function (RoutingConfigurator $routes) {
     RouteHelper::generateCrud($routes, EntityController::class, '/eav/entity');

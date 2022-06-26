@@ -12,14 +12,14 @@ use Symfony\Component\Form\FormView;
 use ZnBundle\Eav\Domain\Entities\ValidationEntity;
 use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
 use ZnLib\Components\Status\Enums\StatusEnum;
-use ZnLib\Web\Components\Url\Helpers\Url;
+use ZnLib\Web\Url\Helpers\Url;
 use ZnLib\Components\I18Next\Facades\I18Next;
-use ZnLib\Web\Components\TwBootstrap\Widgets\Collection\CollectionWidget;
-use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\ActionFormatter;
-use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\Actions\UpdateAction;
-use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\BooleanFormatter;
-use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\EnumFormatter;
-use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\LinkFormatter;
+use ZnLib\Web\TwBootstrap\Widgets\Collection\CollectionWidget;
+use ZnLib\Web\TwBootstrap\Widgets\Format\Formatters\ActionFormatter;
+use ZnLib\Web\TwBootstrap\Widgets\Format\Formatters\Actions\UpdateAction;
+use ZnLib\Web\TwBootstrap\Widgets\Format\Formatters\BooleanFormatter;
+use ZnLib\Web\TwBootstrap\Widgets\Format\Formatters\EnumFormatter;
+use ZnLib\Web\TwBootstrap\Widgets\Format\Formatters\LinkFormatter;
 
 //dd($collection);
 

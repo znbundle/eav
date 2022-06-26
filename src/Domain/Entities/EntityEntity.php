@@ -18,7 +18,7 @@ use ZnLib\Components\I18Next\Facades\I18Next;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
 use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
 use ZnCore\Base\Validation\Interfaces\ValidationByMetadataInterface;
-use ZnLib\Web\Components\Form\Interfaces\BuildFormInterface;
+use ZnLib\Web\Form\Interfaces\BuildFormInterface;
 
 class EntityEntity implements ValidationByMetadataInterface, EntityIdInterface, BuildFormInterface
 {
