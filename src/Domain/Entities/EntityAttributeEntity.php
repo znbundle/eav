@@ -13,7 +13,7 @@ use ZnLib\Components\Status\Enums\StatusEnum;
 use ZnCore\Base\Enum\Helpers\EnumHelper;
 use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
 use ZnCore\Base\Validation\Interfaces\ValidationByMetadataInterface;
-use ZnLib\Web\Symfony4\MicroApp\Interfaces\BuildFormInterface;
+use ZnLib\Web\Components\Form\Interfaces\BuildFormInterface;
 
 class EntityAttributeEntity implements ValidationByMetadataInterface, EntityIdInterface, BuildFormInterface
 {

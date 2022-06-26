@@ -19,7 +19,7 @@ use ZnCore\Base\Arr\Helpers\ArrayHelper;
 use ZnLib\Components\DynamicEntity\Interfaces\ValidateDynamicEntityInterface;
 use ZnLib\Components\I18Next\Facades\I18Next;
 use ZnCore\Contract\Arr\Interfaces\ToArrayInterface;
-use ZnLib\Web\Symfony4\MicroApp\Interfaces\BuildFormInterface;
+use ZnLib\Web\Components\Form\Interfaces\BuildFormInterface;
 
 class DynamicForm implements BuildFormInterface, ToArrayInterface, ValidateDynamicEntityInterface
 {

@@ -7,7 +7,7 @@
 
 use ZnBundle\Eav\Symfony4\Widgets\DynamicInput\DynamicInputWidget;
 use ZnLib\Components\I18Next\Facades\I18Next;
-use ZnLib\Web\Symfony4\MicroApp\Libs\FormRender;
+use ZnLib\Web\Components\Form\Libs\FormRender;
 use ZnLib\Web\View\View;
 
 ?>

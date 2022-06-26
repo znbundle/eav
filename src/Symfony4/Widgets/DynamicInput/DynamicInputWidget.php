@@ -3,7 +3,7 @@
 namespace ZnBundle\Eav\Symfony4\Widgets\DynamicInput;
 
 use Symfony\Component\Form\FormView;
-use ZnLib\Web\Symfony4\MicroApp\Libs\FormRender;
+use ZnLib\Web\Components\Form\Libs\FormRender;
 use ZnLib\Web\Widgets\Base\BaseWidget2;
 
 class DynamicInputWidget extends BaseWidget2
