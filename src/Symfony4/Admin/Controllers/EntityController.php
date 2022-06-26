@@ -8,10 +8,10 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
 use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
-use ZnLib\Web\Helpers\Url;
+use ZnLib\Web\Components\Url\Helpers\Url;
 use ZnCore\Domain\Query\Entities\Query;
-use ZnLib\Web\Symfony4\MicroApp\BaseWebCrudController;
-use ZnLib\Web\Symfony4\MicroApp\Interfaces\ControllerAccessInterface;
+use ZnLib\Web\Components\Controller\BaseWebCrudController;
+use ZnLib\Web\Components\Controller\Interfaces\ControllerAccessInterface;
 use ZnLib\Web\Components\Widget\Widgets\BreadcrumbWidget;
 
 class EntityController extends BaseWebCrudController implements ControllerAccessInterface

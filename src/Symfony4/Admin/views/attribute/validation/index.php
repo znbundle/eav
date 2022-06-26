@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormView;
 use ZnBundle\Eav\Domain\Entities\ValidationEntity;
-use ZnLib\Web\Helpers\Url;
+use ZnLib\Web\Components\Url\Helpers\Url;
 use ZnLib\Components\I18Next\Facades\I18Next;
 use ZnLib\Web\Components\Widget\Widgets\Collection\CollectionWidget;
 use ZnLib\Web\Components\Widget\Widgets\Format\Formatters\ActionFormatter;

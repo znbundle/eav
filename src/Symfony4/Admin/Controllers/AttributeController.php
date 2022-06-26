@@ -6,9 +6,9 @@ use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\AttributeServiceInterface;
 use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
-use ZnLib\Web\Helpers\Url;
-use ZnLib\Web\Symfony4\MicroApp\BaseWebCrudController;
-use ZnLib\Web\Symfony4\MicroApp\Interfaces\ControllerAccessInterface;
+use ZnLib\Web\Components\Url\Helpers\Url;
+use ZnLib\Web\Components\Controller\BaseWebCrudController;
+use ZnLib\Web\Components\Controller\Interfaces\ControllerAccessInterface;
 use ZnLib\Web\Components\Widget\Widgets\BreadcrumbWidget;
 
 class AttributeController extends BaseWebCrudController implements ControllerAccessInterface
