@@ -9,7 +9,7 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityAttributeServiceInterface;
 use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
-use ZnLib\Web\Url\Helpers\Url;
+use ZnLib\Web\Html\Helpers\Url;
 use ZnCore\Base\Validation\Exceptions\UnprocessibleEntityException;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
 use ZnLib\Web\Controller\Base\BaseWebCrudController;

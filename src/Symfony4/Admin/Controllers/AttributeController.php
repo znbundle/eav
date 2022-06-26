@@ -6,7 +6,7 @@ use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\AttributeServiceInterface;
 use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
-use ZnLib\Web\Url\Helpers\Url;
+use ZnLib\Web\Html\Helpers\Url;
 use ZnLib\Web\Controller\Base\BaseWebCrudController;
 use ZnLib\Web\Controller\Interfaces\ControllerAccessInterface;
 use ZnLib\Web\TwBootstrap\Widgets\Breadcrumb\BreadcrumbWidget;
