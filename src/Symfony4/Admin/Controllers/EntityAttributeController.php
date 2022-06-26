@@ -15,7 +15,7 @@ use ZnCore\Domain\Entity\Helpers\EntityHelper;
 use ZnLib\Web\Components\Controller\BaseWebCrudController;
 use ZnLib\Web\Components\Form\Interfaces\BuildFormInterface;
 use ZnLib\Web\Components\Controller\Interfaces\ControllerAccessInterface;
-use ZnLib\Web\Components\Widget\Widgets\BreadcrumbWidget;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Breadcrumb\BreadcrumbWidget;
 
 class EntityAttributeController extends BaseWebCrudController implements ControllerAccessInterface
 {

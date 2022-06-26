@@ -12,7 +12,7 @@ use ZnLib\Web\Components\Url\Helpers\Url;
 use ZnCore\Domain\Query\Entities\Query;
 use ZnLib\Web\Components\Controller\BaseWebCrudController;
 use ZnLib\Web\Components\Controller\Interfaces\ControllerAccessInterface;
-use ZnLib\Web\Components\Widget\Widgets\BreadcrumbWidget;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Breadcrumb\BreadcrumbWidget;
 
 class EntityController extends BaseWebCrudController implements ControllerAccessInterface
 {
