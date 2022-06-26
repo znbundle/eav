@@ -12,7 +12,7 @@ use ZnLib\Web\Helpers\Url;
 use ZnCore\Domain\Query\Entities\Query;
 use ZnLib\Web\Symfony4\MicroApp\BaseWebCrudController;
 use ZnLib\Web\Symfony4\MicroApp\Interfaces\ControllerAccessInterface;
-use ZnLib\Web\Widgets\BreadcrumbWidget;
+use ZnLib\Web\Components\Widget\Widgets\BreadcrumbWidget;
 
 class EntityController extends BaseWebCrudController implements ControllerAccessInterface
 {

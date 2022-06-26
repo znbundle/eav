@@ -5,7 +5,7 @@ namespace ZnBundle\Eav\Symfony4\Widgets\DynamicForm;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use ZnLib\Web\Components\Form\Libs\FormRender;
-use ZnLib\Web\Widgets\Base\BaseWidget2;
+use ZnLib\Web\Components\Widget\Base\BaseWidget2;
 
 class DynamicFormWidget extends BaseWidget2
 {

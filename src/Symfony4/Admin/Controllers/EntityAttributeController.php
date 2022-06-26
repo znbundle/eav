@@ -15,7 +15,7 @@ use ZnCore\Domain\Entity\Helpers\EntityHelper;
 use ZnLib\Web\Symfony4\MicroApp\BaseWebCrudController;
 use ZnLib\Web\Components\Form\Interfaces\BuildFormInterface;
 use ZnLib\Web\Symfony4\MicroApp\Interfaces\ControllerAccessInterface;
-use ZnLib\Web\Widgets\BreadcrumbWidget;
+use ZnLib\Web\Components\Widget\Widgets\BreadcrumbWidget;
 
 class EntityAttributeController extends BaseWebCrudController implements ControllerAccessInterface
 {
