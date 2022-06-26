@@ -14,12 +14,12 @@ use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
 use ZnLib\Components\Status\Enums\StatusEnum;
 use ZnLib\Web\Components\Url\Helpers\Url;
 use ZnLib\Components\I18Next\Facades\I18Next;
-use ZnLib\Web\Components\Widget\Widgets\Collection\CollectionWidget;
-use ZnLib\Web\Components\Widget\Widgets\Format\Formatters\ActionFormatter;
-use ZnLib\Web\Components\Widget\Widgets\Format\Formatters\Actions\UpdateAction;
-use ZnLib\Web\Components\Widget\Widgets\Format\Formatters\BooleanFormatter;
-use ZnLib\Web\Components\Widget\Widgets\Format\Formatters\EnumFormatter;
-use ZnLib\Web\Components\Widget\Widgets\Format\Formatters\LinkFormatter;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Collection\CollectionWidget;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\ActionFormatter;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\Actions\UpdateAction;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\BooleanFormatter;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\EnumFormatter;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\LinkFormatter;
 
 //dd($collection);
 

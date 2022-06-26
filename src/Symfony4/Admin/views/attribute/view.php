@@ -12,10 +12,10 @@ use ZnLib\Components\Status\Enums\StatusEnum;
 use ZnLib\Components\I18Next\Facades\I18Next;
 use ZnLib\Web\Components\Controller\Helpers\ActionHelper;
 use ZnLib\Web\Components\View\Libs\View;
-use ZnLib\Web\Components\Widget\Widgets\Detail\DetailWidget;
-use ZnLib\Web\Components\Widget\Widgets\Format\Formatters\BooleanFormatter;
-use ZnLib\Web\Components\Widget\Widgets\Format\Formatters\EnumFormatter;
-use ZnLib\Web\Components\Widget\Widgets\Format\Formatters\LinkFormatter;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Detail\DetailWidget;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\BooleanFormatter;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\EnumFormatter;
+use ZnLib\Web\Components\TwBootstrap\Widgets\Format\Formatters\LinkFormatter;
 
 $attributes = [
     [
