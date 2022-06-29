@@ -12,7 +12,7 @@ use ZnTool\Test\Base\BaseRestApiTest;
 
 include __DIR__ . '/../bootstrap.php';
 
-class DataTest extends BaseRestApiTest
+abstract class DataTest extends BaseRestApiTest
 {
 
     protected $basePath = 'v1';
