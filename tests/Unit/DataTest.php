@@ -46,7 +46,7 @@ abstract class DataTest extends BaseRestApiTest
 //            'attributesTie.attribute.unit',
 //        ]);
 //        /** @var EntityEntity $entity */
-//        $entity = $entityService->oneById(1, $query);
+//        $entity = $entityService->findOneById(1, $query);
 //        dd($entity->getAttributes());
 //        $this->assertEquals($body, EntityHelper::toArray($entity));
 //    }

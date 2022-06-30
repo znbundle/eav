@@ -45,7 +45,7 @@ class EntityAttributeController extends BaseWebCrudController implements Control
     {
         $id = $request->query->get('id');
         /** @var BuildFormInterface | EntityAttributeEntity $form */
-        $form = $this->getService()->oneById($id);
+        $form = $this->getService()->findOneById($id);
         $this->getBreadcrumbWidget()->add('update', Url::to([$this->getBaseUri() . '/update', 'id' => $id]));
         $title = EntityHelper::getAttribute($form, $this->titleAttribute());
         $this->getView()->addAttribute('title', $title);
