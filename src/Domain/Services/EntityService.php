@@ -41,7 +41,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
     {
         $query = Query::forge($query);
         $query->where('category_id', $categoryId);
-        return $this->all($query);
+        return $this->findAll($query);
     }
 
     public function oneByName(string $name, Query $query = null): EntityEntity

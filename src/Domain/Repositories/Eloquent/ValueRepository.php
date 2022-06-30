@@ -42,6 +42,6 @@ class ValueRepository extends BaseEloquentCrudRepository implements ValueReposit
         $query->where('entity_id', $entityId);
         $query->where('record_id', $recordId);
         $query->with(['attribute']);
-        return $this->all($query);
+        return $this->findAll($query);
     }
 }
