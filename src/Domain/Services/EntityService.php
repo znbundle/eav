@@ -44,9 +44,9 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         return $this->findAll($query);
     }
 
-    public function oneByName(string $name, Query $query = null): EntityEntity
+    public function findOneByName(string $name, Query $query = null): EntityEntity
     {
-        return $this->getRepository()->oneByName($name, $query);
+        return $this->getRepository()->findOneByName($name, $query);
     }
 
     public function oneByIdWithRelations($id, Query $query = null): EntityEntity

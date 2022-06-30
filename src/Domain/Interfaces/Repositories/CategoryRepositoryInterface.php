@@ -9,5 +9,5 @@ use ZnCore\Domain\Query\Entities\Query;
 interface CategoryRepositoryInterface extends CrudRepositoryInterface
 {
 
-    public function oneByName(string $name, Query $query = null): CategoryEntity;
+    public function findOneByName(string $name, Query $query = null): CategoryEntity;
 }

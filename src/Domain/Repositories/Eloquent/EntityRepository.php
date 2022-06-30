@@ -27,7 +27,7 @@ class EntityRepository extends BaseEloquentCrudRepository implements EntityRepos
         return EntityEntity::class;
     }
 
-    public function oneByName(string $name, Query $query = null): EntityEntity
+    public function findOneByName(string $name, Query $query = null): EntityEntity
     {
         $query = Query::forge($query);
         $query->where('name', $name);

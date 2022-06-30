@@ -8,5 +8,5 @@ use ZnCore\Domain\Service\Interfaces\CrudServiceInterface;
 interface CategoryServiceInterface extends CrudServiceInterface
 {
 
-    public function oneByName(string $name): CategoryEntity;
+    public function findOneByName(string $name): CategoryEntity;
 }

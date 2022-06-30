@@ -9,5 +9,5 @@ use ZnCore\Domain\Query\Entities\Query;
 interface EntityRepositoryInterface extends CrudRepositoryInterface
 {
 
-    public function oneByName(string $name, Query $query = null): EntityEntity;
+    public function findOneByName(string $name, Query $query = null): EntityEntity;
 }

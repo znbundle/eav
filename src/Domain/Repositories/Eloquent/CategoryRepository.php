@@ -20,7 +20,7 @@ class CategoryRepository extends BaseEloquentCrudRepository implements CategoryR
         return CategoryEntity::class;
     }
 
-    public function oneByName(string $name, Query $query = null): CategoryEntity
+    public function findOneByName(string $name, Query $query = null): CategoryEntity
     {
         $query = Query::forge($query);
         $query->where('name', $name);

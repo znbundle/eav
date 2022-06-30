@@ -15,7 +15,7 @@ interface EntityServiceInterface extends CrudServiceInterface
 
     public function allByCategoryId(int $categoryId, Query $query = null): Collection;
 
-    public function oneByName(string $name, Query $query = null): EntityEntity;
+    public function findOneByName(string $name, Query $query = null): EntityEntity;
 
     public function validateEntity(DynamicEntity $dynamicEntity): void;
 

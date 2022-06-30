@@ -26,8 +26,8 @@ class CategoryService extends BaseCrudService implements CategoryServiceInterfac
         $this->setEntityManager($entityManager);
     }
 
-    public function oneByName(string $name): CategoryEntity
+    public function findOneByName(string $name): CategoryEntity
     {
-        return $this->getRepository()->oneByName($name);
+        return $this->getRepository()->findOneByName($name);
     }
 }
