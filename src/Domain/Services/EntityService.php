@@ -58,7 +58,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
             //'attributesTie.attribute.unit',
         ]);
         /** @var EntityEntity $entity */
-        $entity = parent::oneById($id, $query);
+        $entity = parent::findOneById($id, $query);
         return $entity;
     }
 
