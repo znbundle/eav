@@ -43,7 +43,7 @@ class EntityController extends BaseWebCrudController implements ControllerAccess
         $id = $request->query->get('id');
         $query = new Query();
         $query->with('category');
-        $entity = $this->getService()->oneByIdWithRelations($id, $query);
+        $entity = $this->getService()->findOneByIdWithRelations($id, $query);
         return $this->showView($entity);
     }
 }

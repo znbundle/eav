@@ -49,7 +49,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         return $this->getRepository()->findOneByName($name, $query);
     }
 
-    public function oneByIdWithRelations($id, Query $query = null): EntityEntity
+    public function findOneByIdWithRelations($id, Query $query = null): EntityEntity
     {
         $query = Query::forge($query);
         $query->with([
@@ -64,13 +64,13 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
 
     public function createEntityById(int $id): DynamicEntity
     {
-        $entityEntity = $this->oneByIdWithRelations($id);
+        $entityEntity = $this->findOneByIdWithRelations($id);
         return new DynamicEntity($entityEntity);
     }
 
     public function createFormById(int $id): DynamicForm
     {
-        $entityEntity = $this->oneByIdWithRelations($id);
+        $entityEntity = $this->findOneByIdWithRelations($id);
         return $this->createFormByEntity($entityEntity);
     }
 
@@ -89,7 +89,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
 //        $recordId = $dynamicEntity->getId();
 //        $this->validate($dynamicEntity->entityId(), $dynamicEntity->toArray());
         $this->validateEntity($dynamicEntity);
-        $entityEntity = $this->oneByIdWithRelations($dynamicEntity->entityId());
+        $entityEntity = $this->findOneByIdWithRelations($dynamicEntity->entityId());
         /** @var ValueServiceInterface $valueService */
         $valueService = ContainerHelper::getContainer()->get(ValueServiceInterface::class);
         foreach ($entityEntity->getAttributes() as $attributeEntity) {
@@ -101,7 +101,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
 
     public function validate(int $entityId, array $data): DynamicEntity
     {
-        $entityEntity = $this->oneByIdWithRelations($entityId);
+        $entityEntity = $this->findOneByIdWithRelations($entityId);
         $dynamicEntity = new DynamicEntity($entityEntity);
         //$dynamicEntity = $this->createEntityById($entityId);
         $normalizer = new TypeNormalizer();
@@ -114,7 +114,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
 
     public function normalize(int $entityId, array $data = []): DynamicEntity
     {
-        $entityEntity = $this->oneByIdWithRelations($entityId);
+        $entityEntity = $this->findOneByIdWithRelations($entityId);
         $dynamicEntity = new DynamicEntity($entityEntity);
         $normalizer = new TypeNormalizer();
         $data = $normalizer->normalizeData($data, $entityEntity);

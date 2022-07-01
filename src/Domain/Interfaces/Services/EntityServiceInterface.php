@@ -27,7 +27,7 @@ interface EntityServiceInterface extends CrudServiceInterface
 
     public function createFormByEntity(EntityEntity $entityEntity): DynamicForm;
 
-    public function oneByIdWithRelations($id, Query $query = null): EntityEntity;
+    public function findOneByIdWithRelations($id, Query $query = null): EntityEntity;
 
     /**
      * @param int $entityId
