@@ -37,7 +37,7 @@ class EntityRepository extends BaseEloquentCrudRepository implements EntityRepos
             //'attributesTie.attribute.unit',
         ]);*/
         /** @var EntityEntity $entity */
-        return $this->one($query);
+        return $this->findOne($query);
     }
 
     public function relations()

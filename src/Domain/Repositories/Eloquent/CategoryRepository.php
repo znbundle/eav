@@ -24,6 +24,6 @@ class CategoryRepository extends BaseEloquentCrudRepository implements CategoryR
     {
         $query = Query::forge($query);
         $query->where('name', $name);
-        return $this->one($query);
+        return $this->findOne($query);
     }
 }
