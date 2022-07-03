@@ -6,7 +6,7 @@
  * @var $baseUri string
  */
 
-use Illuminate\Support\Collection;
+use ZnCore\Domain\Collection\Libs\Collection;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormView;
 use ZnBundle\Eav\Domain\Entities\ValidationEntity;

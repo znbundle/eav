@@ -3,7 +3,7 @@
 namespace ZnBundle\Eav\Domain\Services;
 
 use DateTime;
-use Illuminate\Support\Collection;
+use ZnCore\Domain\Collection\Libs\Collection;
 use ZnBundle\Eav\Domain\Entities\AttributeEntity;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;

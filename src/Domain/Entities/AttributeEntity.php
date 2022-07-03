@@ -3,7 +3,7 @@
 namespace ZnBundle\Eav\Domain\Entities;
 
 use ZnCore\Base\Enum\Constraints\Enum;
-use Illuminate\Support\Collection;
+use ZnCore\Domain\Collection\Libs\Collection;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;

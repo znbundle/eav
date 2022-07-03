@@ -3,7 +3,7 @@
 namespace ZnBundle\Eav\Domain\Entities;
 
 use Illuminate\Container\Container;
-use Illuminate\Support\Collection;
+use ZnCore\Domain\Collection\Libs\Collection;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
