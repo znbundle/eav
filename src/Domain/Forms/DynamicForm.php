@@ -2,8 +2,6 @@
 
 namespace ZnBundle\Eav\Domain\Forms;
 
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Collection\Libs\Collection;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -15,11 +13,12 @@ use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnBundle\Eav\Domain\Entities\EnumEntity;
 use ZnBundle\Eav\Domain\Libs\Rules;
 use ZnBundle\Eav\Domain\Traits\DynamicAttribute;
-use ZnCore\Contract\Common\Exceptions\InvalidArgumentException;
 use ZnCore\Base\Arr\Helpers\ArrayHelper;
+use ZnCore\Contract\Arr\Interfaces\ToArrayInterface;
+use ZnCore\Contract\Common\Exceptions\InvalidArgumentException;
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnLib\Components\DynamicEntity\Interfaces\ValidateDynamicEntityInterface;
 use ZnLib\Components\I18Next\Facades\I18Next;
-use ZnCore\Contract\Arr\Interfaces\ToArrayInterface;
 use ZnLib\Web\Form\Interfaces\BuildFormInterface;
 
 class DynamicForm implements BuildFormInterface, ToArrayInterface, ValidateDynamicEntityInterface
@@ -54,7 +53,7 @@ class DynamicForm implements BuildFormInterface, ToArrayInterface, ValidateDynam
 
     public function buildForm(FormBuilderInterface $formBuilder)
     {
-        /** @var AttributeEntity[] | Collection $attributesCollection */
+        /** @var AttributeEntity[] | Enumerable $attributesCollection */
         $attributesCollection = $this->_entityEntity->getAttributes();
         foreach ($attributesCollection as $attributeEntity) {
             $typeInfo = $this->convertType($attributeEntity);

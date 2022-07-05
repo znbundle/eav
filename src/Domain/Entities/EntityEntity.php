@@ -2,23 +2,17 @@
 
 namespace ZnBundle\Eav\Domain\Entities;
 
-use ZnCore\Base\Container\Libs\Container;
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Collection\Libs\Collection;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnBundle\Eav\Domain\Libs\Rules;
-use ZnLib\Components\Status\Enums\StatusEnum;
-use ZnCore\Base\Instance\Helpers\ClassHelper;
-use ZnCore\Domain\Entity\Helpers\CollectionHelper;
-use ZnLib\Components\I18Next\Facades\I18Next;
-use ZnCore\Domain\Entity\Helpers\EntityHelper;
-use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
 use ZnCore\Base\Validation\Interfaces\ValidationByMetadataInterface;
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
+use ZnCore\Domain\Entity\Helpers\CollectionHelper;
+use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
+use ZnLib\Components\Status\Enums\StatusEnum;
 use ZnLib\Web\Form\Interfaces\BuildFormInterface;
 
 class EntityEntity implements ValidationByMetadataInterface, EntityIdInterface, BuildFormInterface
@@ -65,11 +59,10 @@ class EntityEntity implements ValidationByMetadataInterface, EntityIdInterface, 
             ])
             ->add('handler', TextType::class, [
                 'label' => 'handler'
-            ])
-            /*->add('status', TextType::class, [
+            ])/*->add('status', TextType::class, [
                 'label' => 'status'
             ])*/
-            ;
+        ;
     }
 
     public function getAttributeNames()

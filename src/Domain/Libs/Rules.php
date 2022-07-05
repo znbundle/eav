@@ -2,16 +2,12 @@
 
 namespace ZnBundle\Eav\Domain\Libs;
 
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Collection\Libs\Collection;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints as Assert;
 use ZnBundle\Eav\Domain\Entities\AttributeEntity;
-use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
-use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnCore\Base\Validation\Constraints\Boolean;
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Entity\Helpers\CollectionHelper;
-use ZnCore\Domain\Entity\Helpers\EntityHelper;
 
 class Rules
 {
