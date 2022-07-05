@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Forms;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -98,7 +99,7 @@ class DynamicForm implements BuildFormInterface, ToArrayInterface, ValidateDynam
         return $assoc[$type] ?? $default;
     }
 
-    private function enumsToChoices(?Collection $enumCollection): array
+    private function enumsToChoices(?Enumerable $enumCollection): array
     {
         if (empty($enumCollection)) {
             return [];

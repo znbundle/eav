@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Repositories\Eloquent;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
@@ -56,7 +57,7 @@ class EntityRepository extends BaseEloquentCrudRepository implements EntityRepos
                 'relationEntityAttribute' => 'attributes',
                 'foreignRepositoryClass' => EntityAttributeRepositoryInterface::class,
                 'foreignAttribute' => 'entity_id',
-                'prepareCollection' => function (Collection $collection) {
+                'prepareCollection' => function (Enumerable $collection) {
                     /** @var EntityEntity $entityEntity */
                     foreach ($collection as $entityEntity) {
                         $entityAttributeCollection = $entityEntity->getAttributes();

@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Libs;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -17,7 +18,7 @@ class Rules
 
     private $rules = [];
 
-    public function convert(Collection $attributesCollection): array
+    public function convert(Enumerable $attributesCollection): array
     {
         $this->rules = [];
         /** @var AttributeEntity $attributeEntity */

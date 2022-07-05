@@ -3,18 +3,16 @@
 namespace ZnBundle\Eav\Domain\Services;
 
 use DateTime;
-use ZnCore\Domain\Collection\Libs\Collection;
 use ZnBundle\Eav\Domain\Entities\AttributeEntity;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
+use ZnBundle\Eav\Domain\Entities\ValueEntity;
+use ZnBundle\Eav\Domain\Interfaces\Repositories\ValueRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\ValueServiceInterface;
 use ZnCore\Domain\Entity\Exceptions\NotFoundException;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
 use ZnCore\Domain\EntityManager\Interfaces\EntityManagerInterface;
-use ZnBundle\Eav\Domain\Interfaces\Repositories\ValueRepositoryInterface;
 use ZnCore\Domain\Service\Base\BaseCrudService;
-use ZnBundle\Eav\Domain\Entities\ValueEntity;
-use ZnCore\Domain\Query\Entities\Query;
 
 /**
  * @method ValueRepositoryInterface getRepository()
@@ -30,7 +28,7 @@ class ValueService extends BaseCrudService implements ValueServiceInterface
         $this->entityService = $entityService;
     }
 
-    public function getEntityClass() : string
+    public function getEntityClass(): string
     {
         return ValueEntity::class;
     }
@@ -38,7 +36,7 @@ class ValueService extends BaseCrudService implements ValueServiceInterface
     public function oneRecord(int $entityId, int $recordId): DynamicEntity
     {
         $valueCollection = $this->getRepository()->allValues($entityId, $recordId);
-        if($valueCollection->count() == 0) {
+        if ($valueCollection->count() == 0) {
             throw new NotFoundException();
         }
         $dynamicEntity = $this->entityService->createEntityById($entityId);

@@ -6,14 +6,14 @@
  * @var $baseUri string
  */
 
-use ZnCore\Domain\Collection\Libs\Collection;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormView;
 use ZnBundle\Eav\Domain\Entities\ValidationEntity;
 use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
+use ZnCore\Domain\Collection\Libs\Collection;
+use ZnLib\Components\I18Next\Facades\I18Next;
 use ZnLib\Components\Status\Enums\StatusEnum;
 use ZnLib\Web\Html\Helpers\Url;
-use ZnLib\Components\I18Next\Facades\I18Next;
 use ZnLib\Web\TwBootstrap\Widgets\Collection\CollectionWidget;
 use ZnLib\Web\TwBootstrap\Widgets\Format\Formatters\ActionFormatter;
 use ZnLib\Web\TwBootstrap\Widgets\Format\Formatters\Actions\UpdateAction;

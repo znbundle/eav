@@ -3,6 +3,7 @@
 namespace ZnBundle\Eav\Domain\Entities;
 
 use ZnCore\Base\Container\Libs\Container;
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -154,24 +155,24 @@ class EntityEntity implements ValidationByMetadataInterface, EntityIdInterface, 
     }
 
     /**
-     * @return Collection|null|AttributeEntity[]
+     * @return Enumerable|null|AttributeEntity[]
      */
-    public function getAttributes(): ?Collection
+    public function getAttributes(): ?Enumerable
     {
         return $this->attributes;
     }
 
-    public function setAttributes(?Collection $attributes): void
+    public function setAttributes(?Enumerable $attributes): void
     {
         $this->attributes = $attributes;
     }
 
-    public function getAttributesTie(): ?Collection
+    public function getAttributesTie(): ?Enumerable
     {
         return $this->attributesTie;
     }
 
-    public function setAttributesTie(Collection $attributesTie): void
+    public function setAttributesTie(Enumerable $attributesTie): void
     {
         $this->attributesTie = $attributesTie;
     }

@@ -2,18 +2,19 @@
 
 namespace ZnBundle\Eav\Domain\Entities;
 
-use ZnCore\Base\Enum\Constraints\Enum;
-use ZnCore\Domain\Collection\Libs\Collection;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
-use ZnLib\Components\Status\Enums\StatusEnum;
+use ZnCore\Base\Enum\Constraints\Enum;
 use ZnCore\Base\Enum\Helpers\EnumHelper;
-use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
 use ZnCore\Base\Validation\Interfaces\ValidationByMetadataInterface;
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
+use ZnCore\Domain\Collection\Libs\Collection;
+use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
+use ZnLib\Components\Status\Enums\StatusEnum;
 use ZnLib\Web\Form\Interfaces\BuildFormInterface;
 
 class AttributeEntity implements ValidationByMetadataInterface, EntityIdInterface, BuildFormInterface
@@ -179,27 +180,27 @@ class AttributeEntity implements ValidationByMetadataInterface, EntityIdInterfac
     }
 
     /**
-     * @return ValidationEntity[]|null|Collection
+     * @return ValidationEntity[]|null|Enumerable
      */
-    public function getRules(): ?Collection
+    public function getRules(): ?Enumerable
     {
         return $this->rules;
     }
 
-    public function setRules(Collection $rules): void
+    public function setRules(Enumerable $rules): void
     {
         $this->rules = $rules;
     }
 
     /**
-     * @return EnumEntity[]|null|Collection
+     * @return EnumEntity[]|null|Enumerable
      */
-    public function getEnums(): ?Collection
+    public function getEnums(): ?Enumerable
     {
         return $this->enums;
     }
 
-    public function setEnums(Collection $enums): void
+    public function setEnums(Enumerable $enums): void
     {
         $this->enums = $enums;
     }

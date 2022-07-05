@@ -2,8 +2,6 @@
 
 namespace ZnBundle\Eav\Domain\Services;
 
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Collection\Libs\Collection;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnBundle\Eav\Domain\Forms\DynamicForm;
@@ -13,12 +11,12 @@ use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\ValueServiceInterface;
 use ZnBundle\Eav\Domain\Libs\TypeNormalizer;
 use ZnBundle\Eav\Domain\Libs\Validator;
-use ZnCore\Domain\Entity\Exceptions\NotFoundException;
 use ZnCore\Base\Container\Helpers\ContainerHelper;
-use ZnCore\Domain\Service\Base\BaseCrudService;
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Entity\Helpers\EntityHelper;
 use ZnCore\Domain\EntityManager\Interfaces\EntityManagerInterface;
 use ZnCore\Domain\Query\Entities\Query;
+use ZnCore\Domain\Service\Base\BaseCrudService;
 
 class EntityService extends BaseCrudService implements EntityServiceInterface
 {
