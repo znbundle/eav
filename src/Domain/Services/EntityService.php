@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Services;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
@@ -37,7 +38,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         //$this->valueService = $valueService;
     }
 
-    public function allByCategoryId(int $categoryId, Query $query = null): Collection
+    public function allByCategoryId(int $categoryId, Query $query = null): Enumerable
     {
         $query = Query::forge($query);
         $query->where('category_id', $categoryId);

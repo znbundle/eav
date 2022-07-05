@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Libs;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolation;
@@ -39,7 +40,7 @@ class Validator
         return new ConstraintViolationList($newViolationArray);
     }
 
-    public function createErrorCollectionFromViolationList(ConstraintViolationList $violations): Collection
+    public function createErrorCollectionFromViolationList(ConstraintViolationList $violations): Enumerable
     {
         $collection = new Collection;
         foreach ($violations as $violation) {

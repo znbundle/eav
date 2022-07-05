@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Interfaces\Services;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
@@ -13,7 +14,7 @@ use ZnCore\Domain\Query\Entities\Query;
 interface EntityServiceInterface extends CrudServiceInterface
 {
 
-    public function allByCategoryId(int $categoryId, Query $query = null): Collection;
+    public function allByCategoryId(int $categoryId, Query $query = null): Enumerable;
 
     public function findOneByName(string $name, Query $query = null): EntityEntity;
 

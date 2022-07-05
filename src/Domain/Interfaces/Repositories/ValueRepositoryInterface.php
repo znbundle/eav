@@ -17,5 +17,5 @@ interface ValueRepositoryInterface extends CrudRepositoryInterface
      * @param Query|null $query
      * @return Enumerable | ValueEntity[]
      */
-    public function allValues(int $entityId, int $recordId, Query $query = null): Collection;
+    public function allValues(int $entityId, int $recordId, Query $query = null): Enumerable;
 }

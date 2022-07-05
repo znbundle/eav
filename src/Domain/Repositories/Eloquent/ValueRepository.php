@@ -2,6 +2,7 @@
 
 namespace ZnBundle\Eav\Domain\Repositories\Eloquent;
 
+use ZnCore\Domain\Collection\Interfaces\Enumerable;
 use ZnCore\Domain\Collection\Libs\Collection;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\ValueEntity;
@@ -36,7 +37,7 @@ class ValueRepository extends BaseEloquentCrudRepository implements ValueReposit
         ];
     }
 
-    public function allValues(int $entityId, int $recordId, Query $query = null): Collection
+    public function allValues(int $entityId, int $recordId, Query $query = null): Enumerable
     {
         $query = Query::forge($query);
         $query->where('entity_id', $entityId);
