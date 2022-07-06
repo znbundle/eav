@@ -42,7 +42,7 @@ class Validator
 
     public function createErrorCollectionFromViolationList(ConstraintViolationList $violations): Enumerable
     {
-        $collection = new Collection;
+        $collection = new Collection();
         foreach ($violations as $violation) {
             //$name = trim($violation->getPropertyPath(), '[]');
             $name = $violation->getPropertyPath();

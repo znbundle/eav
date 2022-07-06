@@ -60,7 +60,7 @@ class EntityRepository extends BaseEloquentCrudRepository implements EntityRepos
                     /** @var EntityEntity $entityEntity */
                     foreach ($collection as $entityEntity) {
                         $entityAttributeCollection = $entityEntity->getAttributes();
-                        $filedCollection = new Collection;
+                        $filedCollection = new Collection();
                         /** @var EntityAttributeEntity $entityAttributeEntity */
                         foreach ($entityAttributeCollection as $entityAttributeEntity) {
                             $attributeEntity = $entityAttributeEntity->getAttribute();
