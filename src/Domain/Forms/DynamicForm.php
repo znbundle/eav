@@ -18,7 +18,7 @@ use ZnCore\Contract\Arr\Interfaces\ToArrayInterface;
 use ZnCore\Contract\Common\Exceptions\InvalidArgumentException;
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnLib\Components\DynamicEntity\Interfaces\ValidateDynamicEntityInterface;
-use ZnLib\Components\I18Next\Facades\I18Next;
+use ZnLib\I18Next\Facades\I18Next;
 use ZnLib\Web\Form\Interfaces\BuildFormInterface;
 
 class DynamicForm implements BuildFormInterface, ToArrayInterface, ValidateDynamicEntityInterface

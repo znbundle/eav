@@ -8,7 +8,7 @@
 
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnLib\Components\Status\Enums\StatusEnum;
-use ZnLib\Components\I18Next\Facades\I18Next;
+use ZnLib\I18Next\Facades\I18Next;
 use ZnCore\Entity\Interfaces\EntityIdInterface;
 use ZnLib\Web\Controller\Helpers\ActionHelper;
 use ZnLib\Web\View\Libs\View;
