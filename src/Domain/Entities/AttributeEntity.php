@@ -10,9 +10,9 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
 use ZnCore\Base\Enum\Constraints\Enum;
 use ZnCore\Base\Enum\Helpers\EnumHelper;
-use ZnCore\Base\Validation\Interfaces\ValidationByMetadataInterface;
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Entity\Interfaces\EntityIdInterface;
+use ZnCore\Validation\Interfaces\ValidationByMetadataInterface;
+use ZnCore\Collection\Interfaces\Enumerable;
+use ZnCore\Entity\Interfaces\EntityIdInterface;
 use ZnLib\Components\Status\Enums\StatusEnum;
 use ZnLib\Web\Form\Interfaces\BuildFormInterface;
 

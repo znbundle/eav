@@ -16,7 +16,7 @@ use ZnBundle\Eav\Domain\Traits\DynamicAttribute;
 use ZnCore\Base\Arr\Helpers\ArrayHelper;
 use ZnCore\Contract\Arr\Interfaces\ToArrayInterface;
 use ZnCore\Contract\Common\Exceptions\InvalidArgumentException;
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
+use ZnCore\Collection\Interfaces\Enumerable;
 use ZnLib\Components\DynamicEntity\Interfaces\ValidateDynamicEntityInterface;
 use ZnLib\Components\I18Next\Facades\I18Next;
 use ZnLib\Web\Form\Interfaces\BuildFormInterface;

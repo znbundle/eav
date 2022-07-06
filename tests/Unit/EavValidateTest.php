@@ -3,10 +3,10 @@
 namespace ZnBundle\Eav\Tests\Unit;
 
 use ZnBundle\Eav\Domain\Services\EntityService;
-use ZnCore\Base\Container\Helpers\ContainerHelper;
-use ZnCore\Domain\Entity\Helpers\CollectionHelper;
-use ZnCore\Base\Validation\Exceptions\UnprocessibleEntityException;
-use ZnCore\Domain\Entity\Helpers\EntityHelper;
+use ZnCore\Container\Helpers\ContainerHelper;
+use ZnCore\Entity\Helpers\CollectionHelper;
+use ZnCore\Validation\Exceptions\UnprocessibleEntityException;
+use ZnCore\Entity\Helpers\EntityHelper;
 use ZnTool\Test\Base\BaseRestApiTest;
 
 include __DIR__ . '/../bootstrap.php';

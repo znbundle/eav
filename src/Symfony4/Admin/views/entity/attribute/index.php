@@ -10,7 +10,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormView;
 use ZnBundle\Eav\Domain\Entities\ValidationEntity;
 use ZnBundle\Eav\Domain\Enums\AttributeTypeEnum;
-use ZnCore\Domain\Collection\Interfaces\Enumerable;
+use ZnCore\Collection\Interfaces\Enumerable;
 use ZnLib\Components\I18Next\Facades\I18Next;
 use ZnLib\Components\Status\Enums\StatusEnum;
 use ZnLib\Web\Html\Helpers\Url;
