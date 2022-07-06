@@ -3,8 +3,8 @@
 namespace ZnBundle\Eav\Domain\Interfaces\Repositories;
 
 use ZnBundle\Eav\Domain\Entities\CategoryEntity;
-use ZnCore\Domain\Repository\Interfaces\CrudRepositoryInterface;
-use ZnCore\Domain\Query\Entities\Query;
+use ZnCore\Repository\Interfaces\CrudRepositoryInterface;
+use ZnCore\Query\Entities\Query;
 
 interface CategoryRepositoryInterface extends CrudRepositoryInterface
 {

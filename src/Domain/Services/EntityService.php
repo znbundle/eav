@@ -15,8 +15,8 @@ use ZnCore\Container\Helpers\ContainerHelper;
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnCore\Entity\Helpers\EntityHelper;
 use ZnCore\EntityManager\Interfaces\EntityManagerInterface;
-use ZnCore\Domain\Query\Entities\Query;
-use ZnCore\Domain\Service\Base\BaseCrudService;
+use ZnCore\Query\Entities\Query;
+use ZnCore\Service\Base\BaseCrudService;
 
 class EntityService extends BaseCrudService implements EntityServiceInterface
 {

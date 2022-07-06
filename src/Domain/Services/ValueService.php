@@ -12,7 +12,7 @@ use ZnBundle\Eav\Domain\Interfaces\Services\ValueServiceInterface;
 use ZnCore\Entity\Exceptions\NotFoundException;
 use ZnCore\Entity\Helpers\EntityHelper;
 use ZnCore\EntityManager\Interfaces\EntityManagerInterface;
-use ZnCore\Domain\Service\Base\BaseCrudService;
+use ZnCore\Service\Base\BaseCrudService;
 
 /**
  * @method ValueRepositoryInterface getRepository()

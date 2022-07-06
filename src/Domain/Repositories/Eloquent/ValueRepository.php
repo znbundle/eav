@@ -6,8 +6,8 @@ use ZnBundle\Eav\Domain\Entities\ValueEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\ValueRepositoryInterface;
 use ZnCore\Collection\Interfaces\Enumerable;
-use ZnCore\Domain\Query\Entities\Query;
-use ZnCore\Domain\Relation\Libs\Types\OneToOneRelation;
+use ZnCore\Query\Entities\Query;
+use ZnCore\Relation\Libs\Types\OneToOneRelation;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class ValueRepository extends BaseEloquentCrudRepository implements ValueRepositoryInterface

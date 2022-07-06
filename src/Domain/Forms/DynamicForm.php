@@ -13,7 +13,7 @@ use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnBundle\Eav\Domain\Entities\EnumEntity;
 use ZnBundle\Eav\Domain\Libs\Rules;
 use ZnBundle\Eav\Domain\Traits\DynamicAttribute;
-use ZnCore\Base\Arr\Helpers\ArrayHelper;
+use ZnCore\Arr\Helpers\ArrayHelper;
 use ZnCore\Contract\Arr\Interfaces\ToArrayInterface;
 use ZnCore\Contract\Common\Exceptions\InvalidArgumentException;
 use ZnCore\Collection\Interfaces\Enumerable;

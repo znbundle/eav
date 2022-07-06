@@ -7,7 +7,7 @@ use ZnBundle\Eav\Domain\Services\EntityService;
 use ZnCore\Container\Helpers\ContainerHelper;
 use ZnCore\Validation\Exceptions\UnprocessibleEntityException;
 use ZnCore\Entity\Helpers\EntityHelper;
-use ZnCore\Domain\Query\Entities\Query;
+use ZnCore\Query\Entities\Query;
 use ZnTool\Test\Base\BaseRestApiTest;
 
 include __DIR__ . '/../bootstrap.php';

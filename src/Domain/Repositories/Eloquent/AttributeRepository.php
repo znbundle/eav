@@ -7,9 +7,9 @@ use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EnumRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\MeasureRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\ValidationRepositoryInterface;
-use ZnCore\Domain\Query\Entities\Query;
-use ZnCore\Domain\Relation\Libs\Types\OneToManyRelation;
-use ZnCore\Domain\Relation\Libs\Types\OneToOneRelation;
+use ZnCore\Query\Entities\Query;
+use ZnCore\Relation\Libs\Types\OneToManyRelation;
+use ZnCore\Relation\Libs\Types\OneToOneRelation;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
 
 class AttributeRepository extends BaseEloquentCrudRepository implements AttributeRepositoryInterface
