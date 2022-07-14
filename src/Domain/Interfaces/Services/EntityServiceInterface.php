@@ -8,7 +8,7 @@ use ZnBundle\Eav\Domain\Forms\DynamicForm;
 use ZnCore\Validation\Exceptions\UnprocessibleEntityException;
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnCore\Query\Entities\Query;
-use ZnCore\Service\Interfaces\CrudServiceInterface;
+use ZnDomain\Service\Interfaces\CrudServiceInterface;
 
 interface EntityServiceInterface extends CrudServiceInterface
 {

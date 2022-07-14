@@ -3,7 +3,7 @@
 namespace ZnBundle\Eav\Domain\Interfaces\Services;
 
 use ZnBundle\Eav\Domain\Entities\CategoryEntity;
-use ZnCore\Service\Interfaces\CrudServiceInterface;
+use ZnDomain\Service\Interfaces\CrudServiceInterface;
 
 interface CategoryServiceInterface extends CrudServiceInterface
 {

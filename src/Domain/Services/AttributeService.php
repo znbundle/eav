@@ -4,8 +4,8 @@ namespace ZnBundle\Eav\Domain\Services;
 
 use ZnBundle\Eav\Domain\Interfaces\Repositories\AttributeRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\AttributeServiceInterface;
-use ZnCore\Service\Base\BaseCrudService;
-use ZnCore\EntityManager\Interfaces\EntityManagerInterface;
+use ZnDomain\Service\Base\BaseCrudService;
+use ZnDomain\EntityManager\Interfaces\EntityManagerInterface;
 
 class AttributeService extends BaseCrudService implements AttributeServiceInterface
 {

@@ -5,8 +5,8 @@ namespace ZnBundle\Eav\Domain\Services;
 use ZnBundle\Eav\Domain\Entities\CategoryEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\CategoryRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\CategoryServiceInterface;
-use ZnCore\Service\Base\BaseCrudService;
-use ZnCore\EntityManager\Interfaces\EntityManagerInterface;
+use ZnDomain\Service\Base\BaseCrudService;
+use ZnDomain\EntityManager\Interfaces\EntityManagerInterface;
 use ZnCore\Query\Entities\Query;
 
 /**
