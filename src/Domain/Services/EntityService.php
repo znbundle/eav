@@ -13,9 +13,9 @@ use ZnBundle\Eav\Domain\Libs\TypeNormalizer;
 use ZnBundle\Eav\Domain\Libs\Validator;
 use ZnCore\Container\Helpers\ContainerHelper;
 use ZnCore\Collection\Interfaces\Enumerable;
-use ZnCore\Entity\Helpers\EntityHelper;
+use ZnDomain\Entity\Helpers\EntityHelper;
 use ZnDomain\EntityManager\Interfaces\EntityManagerInterface;
-use ZnCore\Query\Entities\Query;
+use ZnDomain\Query\Entities\Query;
 use ZnDomain\Service\Base\BaseCrudService;
 
 class EntityService extends BaseCrudService implements EntityServiceInterface

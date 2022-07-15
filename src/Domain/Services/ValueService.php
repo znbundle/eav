@@ -9,8 +9,8 @@ use ZnBundle\Eav\Domain\Entities\ValueEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\ValueRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\ValueServiceInterface;
-use ZnCore\Entity\Exceptions\NotFoundException;
-use ZnCore\Entity\Helpers\EntityHelper;
+use ZnDomain\Entity\Exceptions\NotFoundException;
+use ZnDomain\Entity\Helpers\EntityHelper;
 use ZnDomain\EntityManager\Interfaces\EntityManagerInterface;
 use ZnDomain\Service\Base\BaseCrudService;
 

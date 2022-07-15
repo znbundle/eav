@@ -9,7 +9,7 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
 use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
 use ZnLib\Web\Html\Helpers\Url;
-use ZnCore\Query\Entities\Query;
+use ZnDomain\Query\Entities\Query;
 use ZnLib\Web\Controller\Base\BaseWebCrudController;
 use ZnLib\Web\Controller\Interfaces\ControllerAccessInterface;
 use ZnLib\Web\TwBootstrap\Widgets\Breadcrumb\BreadcrumbWidget;

@@ -5,9 +5,9 @@ namespace ZnBundle\Eav\Domain\Interfaces\Services;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
 use ZnBundle\Eav\Domain\Entities\EntityEntity;
 use ZnBundle\Eav\Domain\Forms\DynamicForm;
-use ZnCore\Validation\Exceptions\UnprocessibleEntityException;
+use ZnDomain\Validator\Exceptions\UnprocessibleEntityException;
 use ZnCore\Collection\Interfaces\Enumerable;
-use ZnCore\Query\Entities\Query;
+use ZnDomain\Query\Entities\Query;
 use ZnDomain\Service\Interfaces\CrudServiceInterface;
 
 interface EntityServiceInterface extends CrudServiceInterface

@@ -5,9 +5,9 @@ namespace ZnBundle\Eav\Domain\Libs;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\Constraints as Assert;
 use ZnBundle\Eav\Domain\Entities\AttributeEntity;
-use ZnCore\Validation\Constraints\Boolean;
+use ZnDomain\Validator\Constraints\Boolean;
 use ZnCore\Collection\Interfaces\Enumerable;
-use ZnCore\Entity\Helpers\CollectionHelper;
+use ZnDomain\Entity\Helpers\CollectionHelper;
 
 class Rules
 {

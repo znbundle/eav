@@ -5,9 +5,9 @@ namespace ZnBundle\Eav\Domain\Libs;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolation;
 use Symfony\Component\Validator\ConstraintViolationList;
-use ZnCore\Validation\Entities\ValidationErrorEntity;
-use ZnCore\Validation\Exceptions\UnprocessibleEntityException;
-use ZnCore\Validation\Helpers\SymfonyValidationHelper;
+use ZnDomain\Validator\Entities\ValidationErrorEntity;
+use ZnDomain\Validator\Exceptions\UnprocessibleEntityException;
+use ZnDomain\Validator\Helpers\SymfonyValidationHelper;
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnCore\Collection\Libs\Collection;
 

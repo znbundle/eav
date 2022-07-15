@@ -7,7 +7,7 @@ use ZnBundle\Eav\Domain\Interfaces\Repositories\CategoryRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\CategoryServiceInterface;
 use ZnDomain\Service\Base\BaseCrudService;
 use ZnDomain\EntityManager\Interfaces\EntityManagerInterface;
-use ZnCore\Query\Entities\Query;
+use ZnDomain\Query\Entities\Query;
 
 /**
  * Class CategoryService

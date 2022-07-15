@@ -9,7 +9,7 @@ use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityAttributeRepositoryInterfa
 use ZnBundle\Eav\Domain\Interfaces\Repositories\EntityRepositoryInterface;
 use ZnCore\Collection\Interfaces\Enumerable;
 use ZnCore\Collection\Libs\Collection;
-use ZnCore\Query\Entities\Query;
+use ZnDomain\Query\Entities\Query;
 use ZnDomain\Relation\Libs\Types\OneToManyRelation;
 use ZnDomain\Relation\Libs\Types\OneToOneRelation;
 use ZnDatabase\Eloquent\Domain\Base\BaseEloquentCrudRepository;
