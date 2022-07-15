@@ -11,9 +11,9 @@ use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\ValueServiceInterface;
 use ZnBundle\Eav\Domain\Libs\TypeNormalizer;
 use ZnBundle\Eav\Domain\Libs\Validator;
-use ZnCore\Container\Helpers\ContainerHelper;
+use ZnCore\Code\Helpers\PropertyHelper;
 use ZnCore\Collection\Interfaces\Enumerable;
-use ZnDomain\Entity\Helpers\EntityHelper;
+use ZnCore\Container\Helpers\ContainerHelper;
 use ZnDomain\EntityManager\Interfaces\EntityManagerInterface;
 use ZnDomain\Query\Entities\Query;
 use ZnDomain\Service\Base\BaseCrudService;
@@ -93,7 +93,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         $valueService = ContainerHelper::getContainer()->get(ValueServiceInterface::class);
         foreach ($entityEntity->getAttributes() as $attributeEntity) {
             $name = $attributeEntity->getName();
-            $value = EntityHelper::getValue($dynamicEntity, $name);
+            $value = PropertyHelper::getValue($dynamicEntity, $name);
             $valueService->persistValue($attributeEntity, $dynamicEntity->entityId(), $dynamicEntity->getId(), $value);
         }
     }
@@ -105,7 +105,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         //$dynamicEntity = $this->createEntityById($entityId);
         $normalizer = new TypeNormalizer();
         $data = $normalizer->normalizeData($data, $entityEntity);
-        EntityHelper::setAttributes($dynamicEntity, $data);
+        PropertyHelper::setAttributes($dynamicEntity, $data);
         $validator = new Validator();
         $validator->validate($data, $dynamicEntity->validationRules());
         return $dynamicEntity;
@@ -117,7 +117,7 @@ class EntityService extends BaseCrudService implements EntityServiceInterface
         $dynamicEntity = new DynamicEntity($entityEntity);
         $normalizer = new TypeNormalizer();
         $data = $normalizer->normalizeData($data, $entityEntity);
-        EntityHelper::setAttributes($dynamicEntity, $data);
+        PropertyHelper::setAttributes($dynamicEntity, $data);
         //$this->validateEntity($dynamicEntity);
         return $dynamicEntity;
     }

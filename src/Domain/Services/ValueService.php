@@ -9,8 +9,8 @@ use ZnBundle\Eav\Domain\Entities\ValueEntity;
 use ZnBundle\Eav\Domain\Interfaces\Repositories\ValueRepositoryInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityServiceInterface;
 use ZnBundle\Eav\Domain\Interfaces\Services\ValueServiceInterface;
+use ZnCore\Code\Helpers\PropertyHelper;
 use ZnDomain\Entity\Exceptions\NotFoundException;
-use ZnDomain\Entity\Helpers\EntityHelper;
 use ZnDomain\EntityManager\Interfaces\EntityManagerInterface;
 use ZnDomain\Service\Base\BaseCrudService;
 
@@ -42,7 +42,7 @@ class ValueService extends BaseCrudService implements ValueServiceInterface
         $dynamicEntity = $this->entityService->createEntityById($entityId);
         foreach ($valueCollection as $valueEntity) {
             $name = $valueEntity->getAttribute()->getName();
-            EntityHelper::setAttribute($dynamicEntity, $name, $valueEntity->getValue());
+            PropertyHelper::setAttribute($dynamicEntity, $name, $valueEntity->getValue());
         }
         return $dynamicEntity;
     }
