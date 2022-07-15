@@ -4,7 +4,7 @@ namespace ZnBundle\Eav\Domain\Interfaces\Services;
 
 use ZnBundle\Eav\Domain\Entities\AttributeEntity;
 use ZnBundle\Eav\Domain\Entities\DynamicEntity;
-use ZnDomain\Entity\Exceptions\NotFoundException;
+use ZnCore\Contract\Common\Exceptions\NotFoundException;
 use ZnDomain\Validator\Exceptions\UnprocessibleEntityException;
 use ZnDomain\Service\Interfaces\CrudServiceInterface;
 

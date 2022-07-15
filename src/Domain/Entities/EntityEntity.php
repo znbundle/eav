@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 use ZnBundle\Eav\Domain\Libs\Rules;
 use ZnDomain\Validator\Interfaces\ValidationByMetadataInterface;
 use ZnCore\Collection\Interfaces\Enumerable;
-use ZnDomain\Entity\Helpers\CollectionHelper;
+use ZnCore\Collection\Helpers\CollectionHelper;
 use ZnDomain\Entity\Interfaces\EntityIdInterface;
 use ZnLib\Components\Status\Enums\StatusEnum;
 use ZnLib\Web\Form\Interfaces\BuildFormInterface;

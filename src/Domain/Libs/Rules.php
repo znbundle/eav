@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use ZnBundle\Eav\Domain\Entities\AttributeEntity;
 use ZnDomain\Validator\Constraints\Boolean;
 use ZnCore\Collection\Interfaces\Enumerable;
-use ZnDomain\Entity\Helpers\CollectionHelper;
+use ZnCore\Collection\Helpers\CollectionHelper;
 
 class Rules
 {
