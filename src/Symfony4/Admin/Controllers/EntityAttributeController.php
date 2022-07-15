@@ -9,12 +9,13 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 use ZnBundle\Eav\Domain\Entities\EntityAttributeEntity;
 use ZnBundle\Eav\Domain\Interfaces\Services\EntityAttributeServiceInterface;
 use ZnBundle\Notify\Domain\Interfaces\Services\ToastrServiceInterface;
-use ZnLib\Web\Html\Helpers\Url;
-use ZnDomain\Validator\Exceptions\UnprocessibleEntityException;
+use ZnCore\Code\Helpers\PropertyHelper;
 use ZnDomain\Entity\Helpers\EntityHelper;
+use ZnDomain\Validator\Exceptions\UnprocessibleEntityException;
 use ZnLib\Web\Controller\Base\BaseWebCrudController;
-use ZnLib\Web\Form\Interfaces\BuildFormInterface;
 use ZnLib\Web\Controller\Interfaces\ControllerAccessInterface;
+use ZnLib\Web\Form\Interfaces\BuildFormInterface;
+use ZnLib\Web\Html\Helpers\Url;
 use ZnLib\Web\TwBootstrap\Widgets\Breadcrumb\BreadcrumbWidget;
 
 class EntityAttributeController extends BaseWebCrudController implements ControllerAccessInterface
@@ -47,7 +48,7 @@ class EntityAttributeController extends BaseWebCrudController implements Control
         /** @var BuildFormInterface | EntityAttributeEntity $form */
         $form = $this->getService()->findOneById($id);
         $this->getBreadcrumbWidget()->add('update', Url::to([$this->getBaseUri() . '/update', 'id' => $id]));
-        $title = EntityHelper::getAttribute($form, $this->titleAttribute());
+        $title = PropertyHelper::getValue($form, $this->titleAttribute());
         $this->getView()->addAttribute('title', $title);
         $buildForm = $this->buildForm($form, $request);
         if ($buildForm->isSubmitted() && $buildForm->isValid()) {

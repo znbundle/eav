@@ -42,7 +42,7 @@ class ValueService extends BaseCrudService implements ValueServiceInterface
         $dynamicEntity = $this->entityService->createEntityById($entityId);
         foreach ($valueCollection as $valueEntity) {
             $name = $valueEntity->getAttribute()->getName();
-            PropertyHelper::setAttribute($dynamicEntity, $name, $valueEntity->getValue());
+            PropertyHelper::setValue($dynamicEntity, $name, $valueEntity->getValue());
         }
         return $dynamicEntity;
     }
